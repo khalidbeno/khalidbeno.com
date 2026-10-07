@@ -1,4 +1,38 @@
 /* Page compositions share all visual tokens and primitives. */
+.about-composition {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: start;
+}
+.about-portrait {
+  max-width: 27rem;
+}
+.about-content {
+  display: grid;
+  justify-items: start;
+}
+.about-paragraph {
+  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  line-height: 1.75;
+  color: var(--color-muted);
+  max-width: 43rem;
+}
+.about-content .city-connection {
+  margin-block: 1rem;
+  justify-self: center;
+}
+@media (max-width: 800px) {
+  .about-composition {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-portrait {
+    width: 100%;
+    max-width: 22rem;
+    justify-self: center;
+  }
+}
 .home-main {
   padding-block: 1rem 0;
 }
