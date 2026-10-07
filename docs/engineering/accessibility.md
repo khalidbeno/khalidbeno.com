@@ -14,4 +14,4 @@ Respetar `prefers-reduced-motion`. Validar zoom, reflow, lectura en móvil, obje
 
 ## Validación por feature
 
-Inspección semántica, recorrido de teclado, contraste, reduced motion y comprobación responsive; herramientas automáticas complementan la revisión manual. Registrar errores y alcance real. Fase 0 no contiene UI, por lo que no se afirma conformidad visual ni accesibilidad de páginas inexistentes.
+Inspección semántica, recorrido de teclado, contraste, reduced motion y responsive. Axe complementa revisión visual/manual; cero violations automáticas no acredita conformidad completa. Pruebas por vista en tests/pages.spec.ts y de teclado/sin JavaScript en tests/navigation.spec.ts. Registrar resultados y limitaciones en el informe, sin afirmar validación visual de fotos o detalles aún ausentes.

@@ -15,7 +15,7 @@ const copy = {
     title: 'Aprender construyendo.',
     muted: 'Práctica y formación, con contexto.',
     description:
-      'Laboratorios a la izquierda. Credenciales y ruta de aprendizaje a la derecha.',
+      'Laboratorios, credenciales y una ruta de aprendizaje documentada.',
     labs: 'Pequeños entornos para probar y entender.',
     certs: 'Completadas, en preparación y planificadas.',
     scope: 'Los labs son prácticas técnicas, no experiencia profesional.',
@@ -25,8 +25,7 @@ const copy = {
   en: {
     title: 'Learning by building.',
     muted: 'Practice and training, in context.',
-    description:
-      'Labs on the left. Credentials and a learning path on the right.',
+    description: 'Labs, credentials and a documented learning path.',
     labs: 'Small environments to test and understand.',
     certs: 'Completed, in preparation and planned.',
     scope: 'Labs are technical practice, not professional experience.',

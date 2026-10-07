@@ -1,4 +1,4 @@
-import { profile } from '@/content/profile';
+import { profile } from '../content/profile';
 
 function readSiteUrl(value: string | undefined): URL | undefined {
   if (!value?.trim()) return undefined;

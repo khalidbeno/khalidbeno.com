@@ -1,8 +1,8 @@
 # Arquitectura
 
-## Estado de fase 1
+## Estado tras la implementación nocturna
 
-Foundation documental conservada. Runtime Next.js en la raíz con TypeScript strict, Tailwind, ESLint, Prettier y MDX. Pantallas temporales en `/` y `/en`; sin Home final ni otras vistas completas.
+Foundation conservada. Runtime Next.js en la raíz, siete vistas ES/EN y templates de detalle de proyectos y notas. Las vistas usan datos aprobados y placeholders donde faltan assets; Projects, Labs y Notes no publican fichas inexistentes. About pendiente de su referencia final. Sin motion ni librerías UI externas.
 
 ## Stack previsto
 
@@ -39,12 +39,20 @@ Page → Section → Feature component → UI primitives. Presentación recibe d
 
 `src/app/(es)/layout.tsx` y `src/app/(en)/en/layout.tsx` son root layouts independientes con `html lang` correcto y CSS compartido. No hay layout superior con idioma fijo. Cambiar de idioma usa un enlace nativo y recarga el documento; no requiere librería i18n ni JS cliente propio.
 
-`src/config/site.ts` valida el origen de `SITE_URL`; `src/lib/metadata.ts` centraliza metadata. No se generan canonical ni hreflang absolutos sin dominio confirmado. Los placeholders no son indexables. `.env.example` documenta la configuración; los cambios de entorno requieren reconstruir el build estático.
+`src/config/site.ts` valida `SITE_URL` y controla indexación con `SITE_INDEXABLE`. `src/lib/metadata.ts` centraliza metadata por ruta, canonical, hreflang, Open Graph y Twitter cards. Sin dominio confirmado se omiten URLs públicas; localhost es solo base de desarrollo. Noindex por defecto. Cambios de entorno requieren reconstruir el build estático. Sitemap incluye vistas existentes y contenido publicado únicamente cuando URL e indexación estén activadas.
+
+Las páginas comparten `PageFrame` (header, skip link, main y footer). Header recibe ruta/idioma explícitos, evitando convertirlo en Client Component. Menú móvil mediante details/summary; búsqueda y filtros Notes mediante GET en servidor. No hay `use client` en el código propio. Los fondos SVG/CSS y placeholders son originales; ninguna captura se importa ni se copia a public.
+
+## Contenido y detalles
+
+Perfil, experiencia, contacto y certificaciones tipados con fuentes `docs/content/`. Registros de proyectos, labs y notas vacíos hasta recibir datos reales. Proyectos y notas tienen estados draft/published; solo published genera slugs estáticos, listados y sitemap. `dynamicParams = false` y guardas de contenido impiden servir drafts o slugs desconocidos.
+
+MDX local de confianza registrado con `load` y `sourceFile` bajo `src/content/articles`. Template de autoría fuera de runtime en `docs/templates/note.mdx.example`. El tiempo de lectura es una estimación del cuerpo fuente, excluyendo imports/exports y bloques de código. Traducciones de detalles por id compartido; no crear hreflang a una traducción ausente. JSON-LD escapa `<` antes de insertar datos.
 
 ## Comandos
 
-`npm install`, `npm run dev`, `npm run typecheck`, `npm run lint`, `npm run build`, `npm run start`, `npm run format:check`. Typecheck genera primero tipos de rutas. Versiones efectivas en `package.json` y lockfile tras instalación.
+`npm install`, `npm run dev`, `npm run typecheck`, `npm run lint`, `npm run build`, `npm run start`, `npm run format:check`, `npm test`. Typecheck genera primero tipos de rutas. Versiones fijadas en package.json/lockfile. Pruebas en Edge headless vía Playwright; axe complementa revisión visual y teclado. `npm test` necesita build previo y Edge instalado; `playwright.config.ts` inicia/cierra su propio servidor en 3187. Informes y screenshots en test-results/playwright-report, ignorados por Git, lint y formato.
 
 ## Decisiones pendientes
 
-Dominio, fuentes definitivas/licencias, calibración de tokens contra Figma y capturas, datos profesionales y vistas finales. `src/content/` permanece sin datos personales estructurados: los documentos solo permiten confirmar el nombre, que se referencia desde configuración con trazabilidad.
+Dominio, fuentes definitivas/licencias, retrato y fotos originales, referencia About/Figma, CV y canales de contacto, fichas de proyectos/labs/artículos, enlaces de credenciales. Avisos dev de lint documentados; no aplicar downgrade automático. Detalles todavía sin instancias públicas por falta de contenido aprobado. Ver informe nocturno para resultados exactos de validación.

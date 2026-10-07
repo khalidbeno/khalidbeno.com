@@ -67,7 +67,11 @@ export function SiteHeader({
             {other.toUpperCase()}
           </a>
         </nav>
-        <a className="header-contact" href={localizedPath(locale, '/contact')}>
+        <a
+          className="header-contact"
+          href={localizedPath(locale, '/contact')}
+          aria-current={active === 'contact' ? 'page' : undefined}
+        >
           {interfaceCopy[locale].contact}
         </a>
       </div>

@@ -2,11 +2,13 @@
 
 ## Base
 
-Metadata de App Router centralizada en `src/lib/metadata.ts`: título, descripción temporal ES/EN, Open Graph base y noindex. `SITE_URL` es opcional, validada en `src/config/site.ts`. No hay dominio predeterminado ni imágenes OG ficticias.
+Metadata centralizada en `src/lib/metadata.ts`: títulos y descripciones por vista e idioma, Open Graph, Twitter summary y noindex por defecto. `SITE_URL` es opcional y validada. localhost solo como metadataBase de desarrollo; no se emiten canonical ni hreflang públicos sin dominio confirmado. Sin imágenes OG ficticias.
 
-Con dominio confirmado se generan canonical y hreflang `es`, `en` y `x-default` para `/` y `/en`. Sin dominio se omiten esas URLs. Las rutas futuras deben definir metadata propia con su canonical y equivalencias existentes; no heredar el canonical de la raíz.
+Con dominio confirmado se generan canonical y hreflang es/en/x-default por cada vista. Root layouts no fijan canonical de Home para sus descendientes. Detalles usan id compartido para equivalencias; sin traducción published no declaran su hreflang. Queries de búsqueda canonicalizan al índice Notes.
 
-Foundation siempre noindex: `robots.txt` bloquea crawling y sitemap devuelve una lista vacía. Al aprobar páginas públicas, implementar la activación de `SITE_INDEXABLE` junto con dominio confirmado, allow en robots y un registro de rutas publicadas para sitemap. La variable está documentada pero todavía no activa indexación por sí sola.
+Estado actual: sin dominio confirmado y SITE_INDEXABLE=false, robots bloquea crawling y sitemap vacío. Para un lanzamiento expresamente autorizado, configurar origen confirmado y SITE_INDEXABLE=true y reconstruir. Entonces robots permite crawling y sitemap genera URLs de las siete vistas por idioma más proyectos/notas published, excluyendo drafts. No inventar lastModified para páginas. Notas usan fecha aportada.
+
+Templates incluyen JSON-LD CreativeWork/Article con datos reales, autor aprobado, idioma y fecha cuando corresponda. Escape de `<` para evitar cierre de script. No emitir credenciales, empresas relacionadas, métricas ni estudios no aportados.
 
 ## Contrato de Notes
 

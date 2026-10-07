@@ -3,8 +3,10 @@ import type { Note } from '@/content/notes';
 import { interfaceCopy } from '@/content/interface';
 import { ButtonLink } from '@/components/ui/button';
 import { Tag } from '@/components/ui/tag';
+import { noteReadingMinutes } from './note-body';
 
-export function NoteCard({ note }: { note: Note }) {
+export async function NoteCard({ note }: { note: Note }) {
+  const readingMinutes = await noteReadingMinutes(note);
   return (
     <article
       className={`note-card glass-card${note.featured ? ' note-card--featured' : ''}`}
@@ -12,6 +14,9 @@ export function NoteCard({ note }: { note: Note }) {
       <p className="eyebrow">{note.tags.join(' / ')}</p>
       <h2>{note.title}</h2>
       <p>{note.description}</p>
+      <p className="note-reading-time">
+        {readingMinutes} {note.locale === 'es' ? 'min de lectura' : 'min read'}
+      </p>
       <div className="tag-list">
         {note.tags.map((tag) => (
           <Tag key={tag}>{tag}</Tag>

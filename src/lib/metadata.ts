@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { localizedPath, type Locale } from '@/config/locales';
-import { site } from '@/config/site';
-import { routePath, routeLabel, type RouteKey } from '@/config/routes';
+import { localizedPath, type Locale } from '../config/locales';
+import { site } from '../config/site';
+import { routePath, routeLabel, type RouteKey } from '../config/routes';
 
 export function baseMetadata(locale: Locale): Metadata {
   const description =

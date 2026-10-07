@@ -2,7 +2,7 @@
 
 ## Base prevista
 
-Next.js App Router, React, TypeScript con `strict: true` y Tailwind CSS. Configurar scripts de typecheck, lint y build al inicializar la aplicación; versiones compatibles y lockfile aún pendientes.
+Next.js App Router, React, TypeScript strict y Tailwind CSS. Scripts de typecheck/lint/build/formato/test disponibles; versiones fijadas y lockfile presente. El código de aplicación usa Server Components. Pruebas de navegador solo como devDependencies. No incluir informes generados en lint, formato ni Git.
 
 ## Reglas
 

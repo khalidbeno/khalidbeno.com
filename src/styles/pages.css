@@ -1,4 +1,99 @@
 /* Page compositions share all visual tokens and primitives. */
+.detail-tags {
+  margin-bottom: 2rem;
+}
+.detail-body {
+  max-width: 43rem;
+  margin-inline: auto;
+}
+.detail-body section {
+  margin-block: 2.5rem;
+}
+.detail-body h2 {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  letter-spacing: -0.03em;
+  font-weight: 650;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.detail-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-block: 1.5rem 0.7rem;
+}
+.detail-body p {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-block: 1rem;
+}
+.detail-body ul,
+.detail-body ol {
+  padding-left: 1.5rem;
+  margin-block: 1.5rem;
+}
+.detail-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+  background: #17212e;
+  color: #e5eef9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+}
+.detail-body :not(pre) > code {
+  background: #e7edf5;
+  padding: 0.2rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.88em;
+}
+.detail-body img {
+  max-width: 100%;
+  height: auto;
+}
+.detail-body blockquote {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--color-border);
+}
+.detail-body a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.detail-body table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+.detail-body td,
+.detail-body th {
+  padding: 0.6rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.note-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+.project-detail-image {
+  max-width: 60rem;
+  margin: 2rem auto;
+}
+.project-detail-image .asset {
+  aspect-ratio: 16 / 9;
+}
 .page-notes .page-hero {
   margin-bottom: 0.7rem;
 }

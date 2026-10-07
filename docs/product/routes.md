@@ -14,11 +14,11 @@
 | Notes / Blog          | `/notes`           |
 | Artículo              | `/notes/[slug]`    |
 
-Solo `/` y `/en` existen como pantallas temporales, además de `/robots.txt` y `/sitemap.xml`. Las demás rutas quedan documentadas: sin placeholders vacíos ni páginas completas. Labs reúne laboratorios y certificaciones.
+Las siete vistas existen en ES y EN. `/projects/[slug]` y `/notes/[slug]`, con equivalentes ingleses, implementan templates: solo generan URLs para contenido published. Actualmente sus registros están vacíos y todos los slugs devuelven 404. Existen también `/robots.txt`, `/sitemap.xml` y `/icon.svg`. Labs reúne prácticas y certificaciones, separando sus estados.
 
 ## ES/EN
 
-Español principal sin prefijo: `/`, `/projects`, `/projects/[slug]`, `/labs`, `/notes`, `/notes/[slug]`. Inglés con prefijo: `/en`, `/en/projects`, `/en/projects/[slug]`, `/en/labs`, `/en/notes`, `/en/notes/[slug]`; mismo patrón para las demás vistas. No redirigir `/` a un prefijo. `localizedPath` centraliza el patrón. Al implementar las vistas, crear sus segmentos bajo `(es)` y `(en)/en`. El selector conservará equivalencia real y nunca enlazará artículos inexistentes.
+Español sin prefijo e inglés bajo `/en`; no redirigir `/`. `localizedPath` centraliza el patrón. Segmentos bajo `(es)` y `(en)/en`, root layouts con lang correcto. Selector conserva vista; en detalle enlaza traducción published con mismo id o el índice del otro idioma si no existe. Metadata nunca declara traducción inexistente.
 
 ## Artículos
 

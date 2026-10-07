@@ -19,7 +19,10 @@ export function PageHero({
         <h1>
           {title}
           {mutedTitle ? (
-            <span className="heading-muted">{mutedTitle}</span>
+            <>
+              {' '}
+              <span className="heading-muted">{mutedTitle}</span>
+            </>
           ) : null}
         </h1>
         {description ? <p className="hero-description">{description}</p> : null}

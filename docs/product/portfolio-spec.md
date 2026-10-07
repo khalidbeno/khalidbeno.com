@@ -14,7 +14,7 @@ Networks y Applied AI son capacidades complementarias. No dar el mismo peso a la
 
 ## Alcance
 
-Home, About, Experience, Projects, Labs + Certifications, Contact y Notes / Blog. Experiencia en España e Irlanda es un objetivo narrativo solicitado; empresas, cargos y fechas requieren documentación antes de publicarse.
+Home, About, Experience, Projects, Labs + Certifications, Contact y Notes / Blog. BDS, SIRE y SEUR y sus fechas se han documentado desde la nueva instrucción del usuario. Datos no proporcionados permanecen pendientes. Rutas ES/EN implementadas con contenido aprobado y estados vacíos donde corresponda.
 
 ## Reglas editoriales
 
@@ -30,4 +30,4 @@ Solo publicar hechos aprobados de `docs/content/`. Ausencias se marcan como pend
 
 ## Límite actual
 
-Bootstrap ejecutable con pantalla temporal ES/EN. No implementar Home, páginas finales ni motion. La siguiente tarea habilitará la siguiente fase.
+Implementación de vistas autorizada por el modo autónomo nocturno. Sin push, motion ni publicación remota. Datos/assets faltantes no se inventan. About se compone desde el esquema textual hasta recibir su captura final.
