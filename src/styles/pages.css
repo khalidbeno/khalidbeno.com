@@ -1,4 +1,166 @@
 /* Page compositions share all visual tokens and primitives. */
+.experience-main {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+.experience-intro .page-hero {
+  margin-bottom: 1.2rem;
+}
+.experience-intro .page-hero h1 {
+  font-size: clamp(2.7rem, 3.4vw, 3.8rem);
+}
+.experience-lede {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.experience-intro .city-connection {
+  margin-top: 2rem;
+}
+.experience-timeline ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.timeline-year {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  align-self: center;
+  text-align: right;
+}
+.experience-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 1.4rem;
+  padding: 1.4rem;
+}
+.experience-card::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #263d54;
+}
+.experience-card-content {
+  min-width: 0;
+}
+.experience-card h2 {
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+}
+.experience-role {
+  font-size: 0.85rem;
+  font-weight: 550;
+  color: #465367;
+  margin-top: 0.3rem;
+}
+.experience-period {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  margin-top: 0.45rem;
+}
+.experience-description {
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-top: 0.65rem;
+}
+.experience-note {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
+.experience-card .tag-list {
+  margin-top: 0.9rem;
+  gap: 0.4rem;
+}
+.experience-card .tag {
+  font-size: 0.68rem;
+}
+.timeline-projects .button {
+  font-size: 0.75rem;
+  min-height: 2.3rem;
+  padding: 0.55rem 0.9rem;
+  margin-top: 1rem;
+}
+@media (max-width: 1200px) {
+  .experience-card {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .timeline-entry {
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+}
+@media (max-width: 1000px) {
+  .experience-main {
+    grid-template-columns: 1fr;
+  }
+  .experience-intro {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .experience-intro .page-hero {
+    grid-column: 1;
+  }
+  .experience-lede {
+    grid-column: 1;
+  }
+  .experience-intro .city-connection {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    margin: 0;
+  }
+  .experience-card {
+    grid-template-columns: 10rem minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .experience-intro {
+    display: block;
+  }
+  .experience-intro .city-connection {
+    max-width: 19rem;
+    margin: 1.5rem auto;
+  }
+  .timeline-entry {
+    display: block;
+  }
+  .timeline-year {
+    display: block;
+    text-align: left;
+    margin: 0 0 0.5rem 0.3rem;
+  }
+  .experience-card {
+    grid-template-columns: 1fr;
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+  .experience-card .asset {
+    max-width: 100%;
+    aspect-ratio: 2.8;
+  }
+  .experience-card::before {
+    display: none;
+  }
+}
 .about-composition {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
