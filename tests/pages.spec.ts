@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { routes } from '../src/config/routes';
+import { indexRoutes as routes } from '../src/config/sections';
 import { localizedPath } from '../src/config/locales';
 
-const widths = [320, 375, 768, 1024, 1280, 1440, 1920, 2560];
+const widths = [320, 375, 768, 900, 901, 1024, 1280, 1440, 1920, 2560];
 
 for (const route of routes) {
   for (const locale of ['es', 'en'] as const) {

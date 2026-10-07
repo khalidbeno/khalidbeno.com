@@ -34,11 +34,23 @@ const copy = {
   },
 };
 
-export function LabsView({ locale }: { locale: Locale }) {
+export function LabsSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const ui = interfaceCopy[locale];
   return (
-    <PageFrame locale={locale} active="labs">
+    <section
+      tabIndex={-1}
+      id="labs"
+      aria-label={locale === 'es' ? 'labs' : 'Labs'}
+      className={`portfolio-section page-labs `}
+    >
       <PageHero
+        headingLevel={standalone ? 1 : 2}
         eyebrow="Labs + Certifications"
         title={copy[locale].title}
         mutedTitle={copy[locale].muted}
@@ -114,6 +126,14 @@ export function LabsView({ locale }: { locale: Locale }) {
           </p>
         </section>
       </div>
+    </section>
+  );
+}
+
+export function LabsView({ locale }: { locale: Locale }) {
+  return (
+    <PageFrame locale={locale} active="labs">
+      <LabsSection locale={locale} standalone />
     </PageFrame>
   );
 }

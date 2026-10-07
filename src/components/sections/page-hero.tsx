@@ -5,18 +5,21 @@ export function PageHero({
   mutedTitle,
   description,
   children,
+  headingLevel = 1,
 }: {
   eyebrow: string;
   title: string;
   mutedTitle?: string;
   description?: string;
   children?: ReactNode;
+  headingLevel?: 1 | 2;
 }) {
+  const Heading = headingLevel === 1 ? 'h1' : 'h2';
   return (
     <section className="page-hero">
       <div className="hero-copy">
         <p className="eyebrow">{eyebrow}</p>
-        <h1>
+        <Heading className="hero-heading">
           {title}
           {mutedTitle ? (
             <>
@@ -24,7 +27,7 @@ export function PageHero({
               <span className="heading-muted">{mutedTitle}</span>
             </>
           ) : null}
-        </h1>
+        </Heading>
         {description ? <p className="hero-description">{description}</p> : null}
       </div>
       {children}

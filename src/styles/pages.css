@@ -253,7 +253,7 @@
 .page-contact .page-hero {
   margin-bottom: 0.7rem;
 }
-.page-contact h1 {
+.page-contact .hero-heading {
   font-size: clamp(3.5rem, 5vw, 5rem);
 }
 .contact-introduction {
@@ -787,7 +787,7 @@
 .experience-intro .page-hero {
   margin-bottom: 1.2rem;
 }
-.experience-intro .page-hero h1 {
+.experience-intro .hero-heading {
   font-size: clamp(2.7rem, 3.4vw, 3.8rem);
 }
 .experience-lede {

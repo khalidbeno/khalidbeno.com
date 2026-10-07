@@ -2,7 +2,7 @@
 
 ## Estado tras la implementación nocturna
 
-Foundation conservada. Runtime Next.js en la raíz, siete vistas ES/EN y templates de detalle de proyectos y notas. Las vistas usan datos aprobados y placeholders donde faltan assets; Projects, Labs y Notes no publican fichas inexistentes. About pendiente de su referencia final. Sin motion ni librerías UI externas.
+Foundation conservada. Runtime Next.js en la raíz, landing continua ES/EN y templates de detalle de proyectos y notas. Las vistas usan datos aprobados y placeholders donde faltan assets; Projects, Labs y Notes no publican fichas inexistentes. About pendiente de su referencia final. Sin motion ni librerías UI externas.
 
 ## Stack previsto
 
@@ -41,7 +41,11 @@ Page → Section → Feature component → UI primitives. Presentación recibe d
 
 `src/config/site.ts` valida `SITE_URL` y controla indexación con `SITE_INDEXABLE`. `src/lib/metadata.ts` centraliza metadata por ruta, canonical, hreflang, Open Graph y Twitter cards. Sin dominio confirmado se omiten URLs públicas; localhost es solo base de desarrollo. Noindex por defecto. Cambios de entorno requieren reconstruir el build estático. Sitemap incluye vistas existentes y contenido publicado únicamente cuando URL e indexación estén activadas.
 
-Las páginas comparten `PageFrame` (header, skip link, main y footer). Header recibe ruta/idioma explícitos, evitando convertirlo en Client Component. Menú móvil mediante details/summary; búsqueda y filtros Notes mediante GET en servidor. No hay `use client` en el código propio. Los fondos SVG/CSS y placeholders son originales; ninguna captura se importa ni se copia a public.
+La experiencia principal es PortfolioLanding en / y /en: un PageFrame, un SiteHeader, un main y un SiteFooter. Compone HomeSection, AboutSection, ExperienceSection, ProjectsSection, LabsSection, ContactSection y NotesPreviewSection sin wrappers globales internos. Un h1 en Home y h2 para los siguientes titulares. Los índices reutilizan sections/presentación con encabezado de página.
+
+ScrollRailNavigation es una frontera cliente aislada: IntersectionObserver para sección activa, scroll pasivo agrupado con requestAnimationFrame para progreso global, ResizeObserver y limpieza de listeners. SiteHeader contiene la pequeña interacción de idioma/menú; el contenido y la landing siguen en servidor. Anchors nativos operan sin JavaScript; el progreso y cambio automático de sección requieren JavaScript. El rail aparece solo en la landing y sobre 900px. --rail-width reserva espacio global, sin márgenes manuales por feature.
+
+About, Experience, Labs y Contact redirigen a anchors. Projects y Notes conservan índices completos; NotesPreview no duplica búsqueda/filtros, que siguen mediante GET en /notes. Sitemap excluye redirects y hashes. Los fondos SVG/CSS y placeholders son originales; ninguna captura se importa ni copia a public.
 
 ## Contenido y detalles
 

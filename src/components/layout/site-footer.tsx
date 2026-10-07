@@ -10,7 +10,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       </div>
       <div className="footer-links">
         <span>Madrid ↔ {interfaceCopy[locale].dublin}</span>
-        <a href={localizedPath(locale, '/contact')}>
+        <a href={`${localizedPath(locale)}#contact`}>
           {interfaceCopy[locale].contact}
         </a>
       </div>

@@ -1,8 +1,8 @@
-import { HomeView } from '@/features/home/home-view';
+import { PortfolioLanding } from '@/components/layout/portfolio-landing';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata('es', 'home');
 
 export default function RuntimePage() {
-  return <HomeView locale="es" />;
+  return <PortfolioLanding locale="es" />;
 }

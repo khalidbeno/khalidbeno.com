@@ -8,11 +8,26 @@ import { CityConnection } from '@/components/sections/city-connection';
 import { Asset } from '@/components/ui/asset';
 import { ButtonLink } from '@/components/ui/button';
 
-export function AboutView({ locale }: { locale: Locale }) {
+export function AboutSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const ui = interfaceCopy[locale];
   return (
-    <PageFrame locale={locale} active="about">
-      <PageHero eyebrow="About" title={profileCopy[locale].aboutTitle} />
+    <section
+      tabIndex={-1}
+      id="about"
+      aria-label={'About'}
+      className={`portfolio-section page-about `}
+    >
+      <PageHero
+        headingLevel={standalone ? 1 : 2}
+        eyebrow="About"
+        title={profileCopy[locale].aboutTitle}
+      />
       <section className="about-composition">
         <div className="about-portrait">
           <Asset
@@ -25,11 +40,23 @@ export function AboutView({ locale }: { locale: Locale }) {
         <div className="about-content">
           <p className="about-paragraph">{profileCopy[locale].about}</p>
           <CityConnection locale={locale} compact />
-          <ButtonLink href={localizedPath(locale, '/experience')}>
+          <ButtonLink
+            href={
+              standalone ? localizedPath(locale, '/experience') : '#experience'
+            }
+          >
             {ui.experience}
           </ButtonLink>
         </div>
       </section>
+    </section>
+  );
+}
+
+export function AboutView({ locale }: { locale: Locale }) {
+  return (
+    <PageFrame locale={locale} active="about">
+      <AboutSection locale={locale} standalone />
     </PageFrame>
   );
 }

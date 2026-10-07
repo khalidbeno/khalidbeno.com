@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '../config/site';
-import { routes } from '../config/routes';
+import { indexRoutes } from '../config/sections';
 import { localizedPath, locales } from '../config/locales';
 import { publishedProjects } from '../content/projects';
 import { publishedNotes } from '../content/notes';
@@ -8,7 +8,7 @@ import { publishedNotes } from '../content/notes';
 export function sitemap(): MetadataRoute.Sitemap {
   if (!site.url || !site.indexable) return [];
   const origin = site.url;
-  const entries: MetadataRoute.Sitemap = routes.flatMap((route) =>
+  const entries: MetadataRoute.Sitemap = indexRoutes.flatMap((route) =>
     locales.map((locale) => ({
       url: new URL(localizedPath(locale, route.path), origin).href,
       alternates: {

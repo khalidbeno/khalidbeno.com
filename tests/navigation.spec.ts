@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { routes } from '../src/config/routes';
+import { indexRoutes as routes } from '../src/config/sections';
 import { localizedPath } from '../src/config/locales';
 
 for (const locale of ['es', 'en'] as const) {
@@ -13,7 +13,9 @@ for (const locale of ['es', 'en'] as const) {
       const other = locale === 'es' ? 'en' : 'es';
       await expect(page.locator('.language-switcher a')).toHaveAttribute(
         'href',
-        localizedPath(other, route.path),
+        route.key === 'home'
+          ? `${localizedPath(other)}#home`
+          : localizedPath(other, route.path),
       );
       const paths = await page
         .locator('a[href^="/"]')
@@ -116,7 +118,7 @@ for (const locale of ['es', 'en'] as const) {
       page.locator('a[href^="mailto:"], a[href^="tel:"]'),
     ).toHaveCount(0);
     await expect(
-      page.getByRole('button', {
+      page.locator('#contact').getByRole('button', {
         name: locale === 'es' ? 'Descargar CV' : 'Download CV',
       }),
     ).toBeDisabled();
@@ -172,7 +174,8 @@ test('reduced motion and no-JavaScript preserve content and navigation', async (
     .locator('.mobile-navigation nav')
     .getByRole('link', { name: 'Experiencia' })
     .click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+  await expect(page).toHaveURL(/#experience$/);
+  await expect(page.locator('#experience .hero-heading')).toHaveText(
     'Trabajo real. Problemas reales.',
   );
   await page.goto('http://localhost:3187/notes');

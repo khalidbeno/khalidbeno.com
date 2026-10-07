@@ -10,15 +10,19 @@ export function PageFrame({
   children,
   className = '',
   alternatePath,
+  landing = false,
 }: {
   locale: Locale;
   active: RouteKey;
   children: ReactNode;
   className?: string;
   alternatePath?: string;
+  landing?: boolean;
 }) {
   return (
-    <div className={`site-page page-${active}`}>
+    <div
+      className={`site-page page-${active}${landing ? ' portfolio-landing' : ''}`}
+    >
       <div className="site-backdrop" aria-hidden="true" />
       <a className="skip-link" href="#main-content">
         {interfaceCopy[locale].skip}
@@ -27,11 +31,12 @@ export function PageFrame({
         locale={locale}
         active={active}
         alternatePath={alternatePath}
+        landing={landing}
       />
       <main
         id="main-content"
         tabIndex={-1}
-        className={`container page-main ${className}`}
+        className={`container page-main ${landing ? 'landing-main' : ''} ${className}`}
       >
         {children}
       </main>

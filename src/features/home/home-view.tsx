@@ -8,11 +8,22 @@ import { Asset } from '@/components/ui/asset';
 import { Disciplines } from '@/components/sections/disciplines';
 import { CVAction } from '@/components/sections/cv-action';
 
-export function HomeView({ locale }: { locale: Locale }) {
+export function HomeSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const copy = profileCopy[locale];
   const ui = interfaceCopy[locale];
   return (
-    <PageFrame locale={locale} active="home" className="home-main">
+    <section
+      tabIndex={-1}
+      id="home"
+      aria-label={locale === 'es' ? 'Inicio' : 'Home'}
+      className={`portfolio-section page-home home-main`}
+    >
       <section className="home-hero">
         <div className="home-copy">
           <p className="eyebrow">{profile.name} · Madrid / Dublin</p>
@@ -20,10 +31,14 @@ export function HomeView({ locale }: { locale: Locale }) {
           <p className="home-headline">{copy.headline}</p>
           <p className="home-introduction">{copy.introduction}</p>
           <div className="actions">
-            <ButtonLink href={localizedPath(locale, '/projects')}>
+            <ButtonLink
+              href={
+                standalone ? localizedPath(locale, '/projects') : '#projects'
+              }
+            >
               {ui.projects}
             </ButtonLink>
-            <CVAction locale={locale} />
+            <CVAction locale={locale} id="home-cv-status" />
           </div>
           <Disciplines locale={locale} />
         </div>
@@ -37,6 +52,14 @@ export function HomeView({ locale }: { locale: Locale }) {
           />
         </div>
       </section>
+    </section>
+  );
+}
+
+export function HomeView({ locale }: { locale: Locale }) {
+  return (
+    <PageFrame locale={locale} active="home">
+      <HomeSection locale={locale} standalone />
     </PageFrame>
   );
 }

@@ -14,7 +14,7 @@ Networks y Applied AI son capacidades complementarias. No dar el mismo peso a la
 
 ## Alcance
 
-Home, About, Experience, Projects, Labs + Certifications, Contact y Notes / Blog. BDS, SIRE y SEUR y sus fechas se han documentado desde la nueva instrucción del usuario. Datos no proporcionados permanecen pendientes. Rutas ES/EN implementadas con contenido aprobado y estados vacíos donde corresponda.
+Home, About, Experience, Projects, Labs + Certifications, Contact y Notes / Blog. BDS, SIRE y SEUR y sus fechas se han documentado desde la nueva instrucción del usuario. Datos no proporcionados permanecen pendientes. La experiencia principal es una landing continua en / y /en: Hero → About → Experience → Projects → Labs + Certifications → Contact → Notes preview. Rail lateral desktop y menú compacto móvil navegan por anchors; los índices y detalles aportan profundidad secundaria. Contenido aprobado y estados vacíos donde corresponda.
 
 ## Reglas editoriales
 
@@ -30,4 +30,4 @@ Solo publicar hechos aprobados de `docs/content/`. Ausencias se marcan como pend
 
 ## Límite actual
 
-Implementación de vistas autorizada por el modo autónomo nocturno. Sin push, motion ni publicación remota. Datos/assets faltantes no se inventan. About se compone desde el esquema textual hasta recibir su captura final.
+Implementación de vistas autorizada por el modo autónomo nocturno. Sin push ni publicación remota. Solo smooth scroll nativo y transiciones sutiles; sin GSAP ni storytelling animado. Datos/assets faltantes no se inventan. About se compone desde el esquema textual hasta recibir su captura final.

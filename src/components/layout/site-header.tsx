@@ -1,3 +1,6 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { sections } from '@/config/sections';
 import { localizedPath, type Locale } from '@/config/locales';
 import { routes, routePath, type RouteKey } from '@/config/routes';
 import { interfaceCopy } from '@/content/interface';
@@ -5,23 +8,28 @@ import { profile } from '@/content/profile';
 function NavigationLinks({
   locale,
   active,
+  landing = false,
 }: {
   locale: Locale;
   active: RouteKey;
+  landing?: boolean;
 }) {
   return (
     <>
-      {routes
-        .filter((route) => route.key !== 'contact')
-        .map((route) => (
-          <a
-            key={route.key}
-            href={localizedPath(locale, route.path)}
-            aria-current={active === route.key ? 'page' : undefined}
-          >
-            {route.labels[locale]}
-          </a>
-        ))}
+      {(landing
+        ? sections
+        : routes.filter((route) => route.key !== 'contact')
+      ).map((route) => (
+        <a
+          key={route.key}
+          href={landing ? `#${route.key}` : localizedPath(locale, route.path)}
+          aria-current={
+            active === route.key ? (landing ? 'location' : 'page') : undefined
+          }
+        >
+          {route.labels[locale]}
+        </a>
+      ))}
     </>
   );
 }
@@ -29,14 +37,34 @@ export function SiteHeader({
   locale,
   active,
   alternatePath,
+  landing = false,
 }: {
   locale: Locale;
   active: RouteKey;
   alternatePath?: string;
+  landing?: boolean;
 }) {
   const other = locale === 'es' ? 'en' : 'es';
+  const [section, setSection] = useState<RouteKey>('home');
+  useEffect(() => {
+    if (!landing) return;
+    const update = (event: Event) =>
+      setSection((event as CustomEvent<RouteKey>).detail);
+    document.addEventListener('portfolio-section', update);
+    const hash = location.hash.slice(1);
+    const frame = requestAnimationFrame(() => {
+      if (sections.some((entry) => entry.key === hash))
+        setSection(hash as RouteKey);
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener('portfolio-section', update);
+    };
+  }, [landing]);
   return (
-    <header className="site-header container">
+    <header
+      className={`site-header container${landing ? ' landing-header' : ''}`}
+    >
       <a
         className="wordmark"
         href={localizedPath(locale)}
@@ -48,7 +76,11 @@ export function SiteHeader({
         className="desktop-nav"
         aria-label={locale === 'es' ? 'Principal' : 'Main'}
       >
-        <NavigationLinks locale={locale} active={active} />
+        <NavigationLinks
+          locale={locale}
+          active={landing ? section : active}
+          landing={landing}
+        />
       </nav>
       <div className="header-actions">
         <nav
@@ -57,7 +89,11 @@ export function SiteHeader({
         >
           <span aria-current="true">{locale.toUpperCase()}</span>
           <a
-            href={alternatePath ?? localizedPath(other, routePath(active))}
+            href={
+              landing
+                ? `${localizedPath(other)}#${section}`
+                : (alternatePath ?? localizedPath(other, routePath(active)))
+            }
             lang={other}
             hrefLang={other}
             aria-label={
@@ -69,7 +105,7 @@ export function SiteHeader({
         </nav>
         <a
           className="header-contact"
-          href={localizedPath(locale, '/contact')}
+          href={landing ? '#contact' : `${localizedPath(locale)}#contact`}
           aria-current={active === 'contact' ? 'page' : undefined}
         >
           {interfaceCopy[locale].contact}
@@ -81,13 +117,19 @@ export function SiteHeader({
           <span aria-hidden="true">＋</span>
         </summary>
         <nav aria-label={locale === 'es' ? 'Principal móvil' : 'Mobile main'}>
-          <NavigationLinks locale={locale} active={active} />
-          <a
-            href={localizedPath(locale, '/contact')}
-            aria-current={active === 'contact' ? 'page' : undefined}
-          >
-            {interfaceCopy[locale].contact}
-          </a>
+          <NavigationLinks
+            locale={locale}
+            active={landing ? section : active}
+            landing={landing}
+          />
+          {!landing ? (
+            <a
+              href={`${localizedPath(locale)}#contact`}
+              aria-current={active === 'contact' ? 'page' : undefined}
+            >
+              {interfaceCopy[locale].contact}
+            </a>
+          ) : null}
         </nav>
       </details>
     </header>

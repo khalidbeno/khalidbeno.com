@@ -75,11 +75,23 @@ function ContactChannel({
   );
 }
 
-export function ContactView({ locale }: { locale: Locale }) {
+export function ContactSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const ui = interfaceCopy[locale];
   return (
-    <PageFrame locale={locale} active="contact">
+    <section
+      tabIndex={-1}
+      id="contact"
+      aria-label={locale === 'es' ? 'Contacto' : 'Contact'}
+      className={`portfolio-section page-contact `}
+    >
       <PageHero
+        headingLevel={standalone ? 1 : 2}
         eyebrow={locale === 'es' ? 'Contacto' : 'Contact'}
         title={copy[locale].title}
         description={copy[locale].description}
@@ -125,7 +137,7 @@ export function ContactView({ locale }: { locale: Locale }) {
               />
             </div>
             <div className="actions">
-              <CVAction locale={locale} primary />
+              <CVAction locale={locale} id="contact-cv-status" primary />
               {contact.email ? (
                 <ButtonLink
                   href={`mailto:${contact.email}`}
@@ -166,6 +178,14 @@ export function ContactView({ locale }: { locale: Locale }) {
           </div>
         </div>
       </section>
+    </section>
+  );
+}
+
+export function ContactView({ locale }: { locale: Locale }) {
+  return (
+    <PageFrame locale={locale} active="contact">
+      <ContactSection locale={locale} standalone />
     </PageFrame>
   );
 }

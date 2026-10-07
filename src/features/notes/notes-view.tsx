@@ -51,23 +51,28 @@ const copy = {
   },
 };
 
-export function NotesView({
+export function NotesContent({
   locale,
   query = '',
   category = '',
+  preview = false,
 }: {
   locale: Locale;
   query?: string;
   category?: string;
+  preview?: boolean;
 }) {
   const ui = interfaceCopy[locale];
   const text = copy[locale];
   const entries = publishedNotes(locale);
-  const filtered = filterNotes(entries, query, category);
+  const filtered = preview
+    ? entries.slice(0, 3)
+    : filterNotes(entries, query, category);
   const path = localizedPath(locale, '/notes');
   return (
-    <PageFrame locale={locale} active="notes">
+    <>
       <PageHero
+        headingLevel={preview ? 2 : 1}
         eyebrow={locale === 'es' ? 'Notas' : 'Notes'}
         title={text.title}
         mutedTitle={text.muted}
@@ -84,52 +89,54 @@ export function NotesView({
         </div>
       </PageHero>
       <p className="notes-introduction">{text.intro}</p>
-      <div className="notes-controls">
-        <form action={path} method="get" role="search">
-          <label className="sr-only" htmlFor="notes-search">
-            {text.search}
-          </label>
-          <div className="search-field">
-            <Icon name="search" />
-            <input
-              id="notes-search"
-              type="search"
-              name="q"
-              placeholder={`${text.search}…`}
-              defaultValue={query}
-              maxLength={200}
-            />
-            {category ? (
-              <input type="hidden" name="tag" value={category} />
-            ) : null}
-            <button type="submit" aria-label={text.search}>
-              <Icon name="arrow" />
-            </button>
-          </div>
-        </form>
-        <nav
-          className="note-filters"
-          aria-label={
-            locale === 'es' ? 'Categorías de artículos' : 'Article categories'
-          }
-        >
-          {['', ...noteCategories].map((tag) => {
-            const params = new URLSearchParams();
-            if (query) params.set('q', query);
-            if (tag) params.set('tag', tag);
-            return (
-              <a
-                key={tag}
-                className={`filter-pill${category === tag ? ' filter-pill--active' : ''}`}
-                href={params.size ? `${path}?${params}` : path}
-                aria-current={category === tag ? 'true' : undefined}
-              >
-                {tag || text.all}
-              </a>
-            );
-          })}
-        </nav>
-      </div>
+      {!preview ? (
+        <div className="notes-controls">
+          <form action={path} method="get" role="search">
+            <label className="sr-only" htmlFor="notes-search">
+              {text.search}
+            </label>
+            <div className="search-field">
+              <Icon name="search" />
+              <input
+                id="notes-search"
+                type="search"
+                name="q"
+                placeholder={`${text.search}…`}
+                defaultValue={query}
+                maxLength={200}
+              />
+              {category ? (
+                <input type="hidden" name="tag" value={category} />
+              ) : null}
+              <button type="submit" aria-label={text.search}>
+                <Icon name="arrow" />
+              </button>
+            </div>
+          </form>
+          <nav
+            className="note-filters"
+            aria-label={
+              locale === 'es' ? 'Categorías de artículos' : 'Article categories'
+            }
+          >
+            {['', ...noteCategories].map((tag) => {
+              const params = new URLSearchParams();
+              if (query) params.set('q', query);
+              if (tag) params.set('tag', tag);
+              return (
+                <a
+                  key={tag}
+                  className={`filter-pill${category === tag ? ' filter-pill--active' : ''}`}
+                  href={params.size ? `${path}?${params}` : path}
+                  aria-current={category === tag ? 'true' : undefined}
+                >
+                  {tag || text.all}
+                </a>
+              );
+            })}
+          </nav>
+        </div>
+      ) : null}
       {filtered.length ? (
         <div className="notes-grid">
           {filtered.map((note) => (
@@ -148,32 +155,46 @@ export function NotesView({
           {text.reset}
         </a>
       ) : null}
-      <section className="process-section">
-        <h2 className="eyebrow">{text.structure}</h2>
-        <ol className="process-steps note-steps">
-          {text.steps.map((step, index) => (
-            <li key={step}>
-              <span className="icon-tile">
-                <Icon
-                  name={
-                    index === 0
-                      ? 'document'
-                      : index === 1
-                        ? 'book'
-                        : index === 2
-                          ? 'check'
-                          : 'link'
-                  }
-                />
-              </span>
-              <div>
-                <strong>{step}</strong>
-                <p>{text.captions[index]}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
+      {!preview ? (
+        <section className="process-section">
+          <h2 className="eyebrow">{text.structure}</h2>
+          <ol className="process-steps note-steps">
+            {text.steps.map((step, index) => (
+              <li key={step}>
+                <span className="icon-tile">
+                  <Icon
+                    name={
+                      index === 0
+                        ? 'document'
+                        : index === 1
+                          ? 'book'
+                          : index === 2
+                            ? 'check'
+                            : 'link'
+                    }
+                  />
+                </span>
+                <div>
+                  <strong>{step}</strong>
+                  <p>{text.captions[index]}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
+    </>
+  );
+}
+
+export function NotesView(props: {
+  locale: Locale;
+  query?: string;
+  category?: string;
+}) {
+  return (
+    <PageFrame locale={props.locale} active="notes">
+      <NotesContent {...props} />
     </PageFrame>
   );
 }

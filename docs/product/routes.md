@@ -1,24 +1,28 @@
 # Rutas e idiomas
 
-## Mapa lógico previsto
+## Experiencia principal
 
-| Vista                 | Ruta lógica        |
-| --------------------- | ------------------ |
-| Home                  | `/`                |
-| About                 | `/about`           |
-| Experience            | `/experience`      |
-| Projects              | `/projects`        |
-| Proyecto              | `/projects/[slug]` |
-| Labs + Certifications | `/labs`            |
-| Contact               | `/contact`         |
-| Notes / Blog          | `/notes`           |
-| Artículo              | `/notes/[slug]`    |
+`/` y `/en` son landings continuas con un header, main y footer. Orden: `#home`, `#about`, `#experience`, `#projects`, `#labs`, `#contact`, `#notes`. Rail lateral desktop y menú móvil apuntan a anchors reales. Notes muestra una preview; su índice completo continúa en /notes.
 
-Las siete vistas existen en ES y EN. `/projects/[slug]` y `/notes/[slug]`, con equivalentes ingleses, implementan templates: solo generan URLs para contenido published. Actualmente sus registros están vacíos y todos los slugs devuelven 404. Existen también `/robots.txt`, `/sitemap.xml` y `/icon.svg`. Labs reúne prácticas y certificaciones, separando sus estados.
+## Rutas secundarias y compatibilidad
+
+| Vista                 | Ruta lógica                    |
+| --------------------- | ------------------------------ |
+| Home                  | `/`                            |
+| About (redirect)      | `/about` → `/#about`           |
+| Experience (redirect) | `/experience` → `/#experience` |
+| Projects              | `/projects`                    |
+| Proyecto              | `/projects/[slug]`             |
+| Labs (redirect)       | `/labs` → `/#labs`             |
+| Contact (redirect)    | `/contact` → `/#contact`       |
+| Notes / Blog          | `/notes`                       |
+| Artículo              | `/notes/[slug]`                |
+
+Todas tienen equivalentes ingleses; sus redirects apuntan a `/en#section`. Redirecciones permanentes 308 mediante permanentRedirect, porque no hay profundidad funcional ni motivo SEO para duplicar About/Experience/Labs/Contact. No se eliminan URLs de compatibilidad. `/projects` se conserva como índice futuro; `/notes` mantiene búsqueda y filtros GET. Templates `/projects/[slug]` y `/notes/[slug]` solo generan URLs published; registros actualmente vacíos, slugs desconocidos devuelven 404. También `/robots.txt`, `/sitemap.xml` y `/icon.svg`. Sitemap excluye redirects y hashes.
 
 ## ES/EN
 
-Español sin prefijo e inglés bajo `/en`; no redirigir `/`. `localizedPath` centraliza el patrón. Segmentos bajo `(es)` y `(en)/en`, root layouts con lang correcto. Selector conserva vista; en detalle enlaza traducción published con mismo id o el índice del otro idioma si no existe. Metadata nunca declara traducción inexistente.
+Español sin prefijo e inglés bajo `/en`; no redirigir `/`. `localizedPath` centraliza el patrón. Root layouts con lang correcto. En la landing el selector conserva la sección predominante, incluyendo enlaces directos con hash; sin JavaScript conserva el destino inicial Home. En índices conserva vista y en detalle enlaza traducción published con mismo id o índice del otro idioma si no existe. Metadata nunca declara traducción inexistente.
 
 ## Artículos
 

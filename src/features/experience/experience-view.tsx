@@ -26,12 +26,24 @@ const copy = {
   },
 };
 
-export function ExperienceView({ locale }: { locale: Locale }) {
+export function ExperienceSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const ui = interfaceCopy[locale];
   return (
-    <PageFrame locale={locale} active="experience" className="experience-main">
+    <section
+      tabIndex={-1}
+      id="experience"
+      aria-label={locale === 'es' ? 'Experiencia' : 'Experience'}
+      className={`portfolio-section page-experience experience-main`}
+    >
       <div className="experience-intro">
         <PageHero
+          headingLevel={standalone ? 1 : 2}
           eyebrow={locale === 'es' ? 'Experiencia' : 'Experience'}
           title={copy[locale].title}
           description={copy[locale].description}
@@ -66,7 +78,9 @@ export function ExperienceView({ locale }: { locale: Locale }) {
               <h2>{ui.scaleopts}</h2>
               <p className="experience-description">{ui.scaleoptsBody}</p>
               <ButtonLink
-                href={localizedPath(locale, '/projects')}
+                href={
+                  standalone ? localizedPath(locale, '/projects') : '#projects'
+                }
                 variant="secondary"
               >
                 {ui.projects}
@@ -75,6 +89,14 @@ export function ExperienceView({ locale }: { locale: Locale }) {
           </article>
         </div>
       </div>
+    </section>
+  );
+}
+
+export function ExperienceView({ locale }: { locale: Locale }) {
+  return (
+    <PageFrame locale={locale} active="experience">
+      <ExperienceSection locale={locale} standalone />
     </PageFrame>
   );
 }

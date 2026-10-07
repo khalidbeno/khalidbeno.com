@@ -32,8 +32,8 @@ test('configured canonical, translations and sitemap use each page path without 
     );
     expect(untranslated.alternates?.languages).toBeUndefined();
     const entries = sitemap();
-    expect(entries).toHaveLength(14);
-    expect(new Set(entries.map((entry) => entry.url)).size).toBe(14);
+    expect(entries).toHaveLength(6);
+    expect(new Set(entries.map((entry) => entry.url)).size).toBe(6);
     expect(entries.some((entry) => entry.url.includes('draft'))).toBe(false);
     expect(robots().rules).toEqual({ userAgent: '*', allow: '/' });
   } finally {

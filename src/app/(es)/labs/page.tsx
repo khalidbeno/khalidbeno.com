@@ -1,10 +1,4 @@
-import { LabsView } from '@/features/labs/labs-view';
-import { pageMetadata } from '@/lib/metadata';
-export const metadata = pageMetadata(
-  'es',
-  'labs',
-  'Google Cybersecurity completada; AWS Solutions Architect Associate y CompTIA Security+ en preparación. Laboratorios y ruta de aprendizaje de Khaled Beno.',
-);
+import { permanentRedirect } from 'next/navigation';
 export default function Page() {
-  return <LabsView locale="es" />;
+  permanentRedirect('/#labs');
 }

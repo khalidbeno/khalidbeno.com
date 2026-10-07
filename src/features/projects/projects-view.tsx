@@ -27,12 +27,24 @@ const copy = {
   },
 };
 
-export function ProjectsView({ locale }: { locale: Locale }) {
+export function ProjectsSection({
+  locale,
+  standalone = false,
+}: {
+  locale: Locale;
+  standalone?: boolean;
+}) {
   const entries = publishedProjects(locale);
   const ui = interfaceCopy[locale];
   return (
-    <PageFrame locale={locale} active="projects">
+    <section
+      tabIndex={-1}
+      id="projects"
+      aria-label={locale === 'es' ? 'Proyectos' : 'Projects'}
+      className={`portfolio-section page-projects `}
+    >
       <PageHero
+        headingLevel={standalone ? 1 : 2}
         eyebrow={locale === 'es' ? 'Proyectos' : 'Projects'}
         title={copy[locale].title}
         mutedTitle={copy[locale].muted}
@@ -75,6 +87,14 @@ export function ProjectsView({ locale }: { locale: Locale }) {
         </div>
       )}
       <ProjectProcess locale={locale} />
+    </section>
+  );
+}
+
+export function ProjectsView({ locale }: { locale: Locale }) {
+  return (
+    <PageFrame locale={locale} active="projects">
+      <ProjectsSection locale={locale} standalone />
     </PageFrame>
   );
 }

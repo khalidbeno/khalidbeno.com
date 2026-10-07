@@ -1,6 +1,4 @@
-import { AboutView } from '@/features/about/about-view';
-import { pageMetadata } from '@/lib/metadata';
-export const metadata = pageMetadata('en', 'about');
+import { permanentRedirect } from 'next/navigation';
 export default function Page() {
-  return <AboutView locale="en" />;
+  permanentRedirect('/en#about');
 }

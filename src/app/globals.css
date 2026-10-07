@@ -3,9 +3,12 @@
 @import '../styles/layout.css';
 @import '../styles/components.css';
 @import '../styles/pages.css';
+@import '../styles/landing.css';
 
 html {
   color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 body {
   margin: 0;
