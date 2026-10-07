@@ -23,6 +23,7 @@ for (const route of routes) {
           await page.evaluate(
             () => document.documentElement.scrollWidth <= innerWidth + 1,
           ),
+          `Horizontal overflow at ${width}px on ${locale} ${route.path}`,
         ).toBe(true);
         if (width === 375 || width === 1440) {
           const result = await new AxeBuilder({ page })

@@ -1,4 +1,138 @@
 /* Page compositions share all visual tokens and primitives. */
+.project-pending-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.project-pending-layout .empty-state {
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  border-right: 0;
+  outline: none;
+  min-height: 23rem;
+}
+.blueprint-visual {
+  min-width: 0;
+  border: 1px solid white;
+  border-left: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: rgb(255 255 255 / 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: #4b6481;
+}
+.project-pending-layout > * {
+  min-width: 0;
+}
+@media (max-width: 400px) {
+  .blueprint-visual {
+    padding: 1.5rem 1rem;
+  }
+  .blueprint-node {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+  .blueprint-node--large {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+  .blueprint-connector {
+    width: 1rem;
+  }
+}
+.blueprint-grid {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.blueprint-node {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1.1rem;
+  background: rgb(255 255 255 / 0.55);
+  border: 1px solid white;
+  box-shadow: var(--shadow-soft);
+}
+.blueprint-node .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.blueprint-node--large {
+  width: 6rem;
+  height: 6rem;
+}
+.blueprint-node--large .icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.blueprint-connector {
+  width: 2rem;
+  height: 1px;
+  background: var(--color-border);
+}
+.blueprint-visual strong {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.blueprint-visual > span {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  padding: 2rem;
+  gap: 2rem;
+  align-items: center;
+}
+.project-card--featured {
+  grid-column: 1 / -1;
+}
+.project-card h2 {
+  font-size: 1.7rem;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+.project-card p {
+  color: var(--color-muted);
+  margin-top: 1rem;
+}
+.project-card .tag-list {
+  margin-block: 1rem;
+}
+@media (max-width: 800px) {
+  .project-pending-layout {
+    grid-template-columns: 1fr;
+  }
+  .project-pending-layout .empty-state {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    min-height: auto;
+  }
+  .blueprint-visual {
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    border-left: 1px solid white;
+    border-top: 0;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+}
 .experience-main {
   display: grid;
   grid-template-columns: 0.65fr 1.35fr;
