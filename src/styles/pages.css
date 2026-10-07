@@ -1,4 +1,190 @@
 /* Page compositions share all visual tokens and primitives. */
+.page-contact .page-hero {
+  margin-bottom: 0.7rem;
+}
+.page-contact h1 {
+  font-size: clamp(3.5rem, 5vw, 5rem);
+}
+.contact-introduction {
+  max-width: 43rem;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+.contact-composition {
+  display: grid;
+  grid-template-columns: 1fr 0.22fr;
+  align-items: center;
+  gap: 2rem;
+}
+.contact-composition .city-connection {
+  min-width: 0;
+}
+.contact-panel {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  padding: 2rem;
+  gap: 2rem;
+}
+.contact-details {
+  min-width: 0;
+}
+.contact-details h2 {
+  font-size: 2rem;
+  font-weight: 650;
+  letter-spacing: -0.05em;
+}
+.contact-location {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-top: 0.4rem;
+}
+.contact-channels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-block: 1.8rem;
+}
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgb(255 255 255 / 0.5);
+  border-radius: 1rem;
+  padding: 0.9rem;
+  min-width: 0;
+}
+.contact-channel .icon-tile {
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #ecf1f9;
+  border: 0;
+}
+.contact-channel .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.contact-channel > div {
+  min-width: 0;
+}
+.channel-label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  color: var(--color-muted);
+}
+.channel-pending,
+.contact-channel a {
+  display: block;
+  font-size: 0.83rem;
+  margin-top: 0.2rem;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.channel-pending {
+  color: var(--color-muted);
+}
+.contact-status {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 1rem;
+}
+.contact-interests {
+  border-left: 1px solid var(--color-border);
+  padding-left: 2rem;
+  align-content: center;
+}
+.contact-interests h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.contact-interests p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 0.8rem;
+  line-height: 1.6;
+}
+.contact-interests .disciplines {
+  margin-top: 1.5rem;
+}
+.contact-interests .disciplines .tag {
+  font-size: 0.72rem;
+}
+.opportunity-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+.opportunity-section h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+.opportunity-section p {
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.opportunity-card {
+  padding: 1.3rem 1.6rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+.opportunity-card h3 {
+  font-size: 0.95rem;
+  font-weight: 550;
+}
+.opportunity-card p {
+  font-size: 0.75rem;
+}
+.availability-dot {
+  background: #3a7e67;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+@media (max-width: 1200px) {
+  .contact-composition {
+    grid-template-columns: 1fr;
+  }
+  .contact-composition .city-connection {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .contact-panel {
+    grid-template-columns: 1fr;
+    padding: 1.4rem;
+    gap: 1.5rem;
+  }
+  .contact-interests {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+  .opportunity-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-channels {
+    gap: 0.75rem;
+  }
+  .contact-channel {
+    padding: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .page-labs .hero-copy {
   max-width: 55rem;
 }
