@@ -1,0 +1,28 @@
+/* Initial foundation values, to be calibrated against approved references. */
+@theme {
+  --color-background: #fafbfc;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f0f3f6;
+  --color-foreground: #15191e;
+  --color-muted: #53606d;
+  --color-accent: #e7eef5;
+  --color-border: #dde3e9;
+  --color-focus: #345b7e;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --text-base: 1rem;
+  --text-2xl: 1.5rem;
+  --spacing: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --container-reading: 42rem;
+  --container-page: 75rem;
+  --shadow-soft: 0 4px 24px rgb(21 25 30 / 0.05);
+}
+
+:root {
+  --z-base: 0;
+  --z-navigation: 10;
+  --z-overlay: 20;
+}
