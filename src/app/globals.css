@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import '../styles/tokens.css';
+@import '../styles/layout.css';
+@import '../styles/components.css';
+@import '../styles/pages.css';
 
 html {
   color-scheme: light;
@@ -9,7 +12,8 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 * {
   box-sizing: border-box;
@@ -18,8 +22,25 @@ body {
   outline: 2px solid var(--color-focus);
   outline-offset: 4px;
 }
+button,
+input {
+  font: inherit;
+}
+a {
+  color: inherit;
+}
+::selection {
+  background: #d4e2f1;
+  color: #10151c;
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }

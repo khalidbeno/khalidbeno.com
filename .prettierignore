@@ -2,6 +2,8 @@ node_modules/
 .next/
 out/
 coverage/
+test-results/
+playwright-report/
 package-lock.json
 next-env.d.ts
 docs/design/reference-images/

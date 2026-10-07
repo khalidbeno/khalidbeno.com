@@ -1,28 +1,30 @@
-/* Initial foundation values, to be calibrated against approved references. */
+/* Small shared editorial system, calibrated to the approved light references. */
 @theme {
-  --color-background: #fafbfc;
+  --color-background: #f6f8fb;
   --color-surface: #ffffff;
-  --color-surface-soft: #f0f3f6;
-  --color-foreground: #15191e;
-  --color-muted: #53606d;
-  --color-accent: #e7eef5;
-  --color-border: #dde3e9;
-  --color-focus: #345b7e;
+  --color-surface-soft: #eaf0f6;
+  --color-foreground: #10151c;
+  --color-muted: #5c677b;
+  --color-accent: #e6edf7;
+  --color-border: #d6deea;
+  --color-focus: #335779;
   --font-sans: Arial, Helvetica, sans-serif;
   --font-mono: 'Courier New', monospace;
   --text-base: 1rem;
   --text-2xl: 1.5rem;
   --spacing: 0.25rem;
-  --radius-sm: 0.5rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.75rem;
   --container-reading: 42rem;
-  --container-page: 75rem;
-  --shadow-soft: 0 4px 24px rgb(21 25 30 / 0.05);
+  --container-page: 83rem;
+  --shadow-soft: 0 8px 30px rgb(37 53 79 / 0.05);
 }
 
 :root {
   --z-base: 0;
   --z-navigation: 10;
   --z-overlay: 20;
+  --space-section: clamp(3rem, 6vw, 6rem);
+  --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
 }

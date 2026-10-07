@@ -1,3 +1,5 @@
+import { profile } from '@/content/profile';
+
 function readSiteUrl(value: string | undefined): URL | undefined {
   if (!value?.trim()) return undefined;
   const url = new URL(value);
@@ -16,10 +18,10 @@ function readSiteUrl(value: string | undefined): URL | undefined {
   return url;
 }
 
+const url = readSiteUrl(process.env.SITE_URL);
 export const site = {
-  // Source: docs/content/profile.md — name explicitly approved.
-  name: 'Khaled Beno',
-  url: readSiteUrl(process.env.SITE_URL),
-  // The phase-1 temporary screen must never be indexed.
-  indexable: false,
+  name: profile.name,
+  url,
+  developmentOrigin: new URL('http://localhost:3000'),
+  indexable: Boolean(url && process.env.SITE_INDEXABLE === 'true'),
 } as const;

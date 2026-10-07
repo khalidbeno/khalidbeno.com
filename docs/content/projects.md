@@ -2,7 +2,7 @@
 
 ## Estado
 
-No se han aportado proyectos concretos ni evidencia suficiente para publicarlos.
+El usuario confirma «Proyectos técnicos (Scaleopts)», pero no aporta fichas concretas ni evidencia suficiente. No publicar como hechos los proyectos ilustrativos de la captura.
 
 ## Contrato por proyecto
 
@@ -15,3 +15,7 @@ Presentación neutral: «Proyectos técnicos (Scaleopts)» o proyectos concretos
 ## Pendientes
 
 Inventario, evidencias, permisos y descripciones equivalentes ES/EN. No crear casos de éxito de ejemplo que parezcan reales.
+
+Python, FastAPI, PostgreSQL/MySQL, APIs, Docker, Linux, AWS, automatización e integraciones se enumeran por el usuario solo cuando estén documentados. No atribuirlos hasta recibir esa documentación. Fechas de Scaleopts pendientes; no usar «2025–Actual» de la captura.
+
+Contrato y registro vacío: `src/content/projects.ts`. Detalle: Problema → Arquitectura → Stack → Decisiones → Dificultad → Solución → Resultado. Slugs inexistentes o drafts devuelven 404.

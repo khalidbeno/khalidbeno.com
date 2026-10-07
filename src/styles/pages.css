@@ -1,0 +1,88 @@
+/* Page compositions share all visual tokens and primitives. */
+.home-main {
+  padding-block: 1rem 0;
+}
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  min-height: min(55rem, calc(100svh - 5.5rem));
+  gap: 1rem;
+}
+.home-copy {
+  padding-block: 4rem;
+  position: relative;
+  z-index: 1;
+}
+.home-copy h1 {
+  font-size: clamp(3.6rem, 6.7vw, 6.4rem);
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+}
+.home-copy .eyebrow {
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.15em;
+}
+.home-headline {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.18;
+  margin-top: 1rem;
+  max-width: 40rem;
+}
+.home-introduction {
+  margin-top: 2rem;
+  max-width: 32rem;
+  font-size: clamp(1.1rem, 1.65vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+.home-copy .actions {
+  margin-top: 2.5rem;
+}
+.home-copy .disciplines {
+  margin-top: 2.5rem;
+}
+.home-portrait {
+  align-self: end;
+  max-width: 40rem;
+  width: 100%;
+}
+.home-portrait .asset {
+  min-height: 36rem;
+}
+@media (max-width: 1000px) {
+  .home-copy h1 {
+    font-size: clamp(3.5rem, 6.2vw, 5rem);
+  }
+  .home-portrait .asset {
+    min-height: 28rem;
+  }
+}
+@media (max-width: 800px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .home-copy {
+    padding-block: 3.5rem 1rem;
+  }
+  .home-copy h1 {
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    white-space: normal;
+  }
+  .home-copy .eyebrow {
+    margin-bottom: 1.8rem;
+  }
+  .home-headline {
+    max-width: 32rem;
+  }
+  .home-portrait {
+    max-width: 30rem;
+    justify-self: center;
+  }
+  .home-portrait .asset {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,19 @@
+export const status = 'draft';
+
+{/* TEMPLATE ONLY — not an article and not imported by the application. */}
+
+## Introducción
+
+TODO: contexto, objetivo y alcance verificables.
+
+## Desarrollo
+
+TODO: entorno real, decisiones, comandos, pruebas y limitaciones.
+
+## Conclusión
+
+TODO: observaciones sustentadas en evidencia.
+
+## Recursos
+
+TODO: enlaces originales y documentación primaria.

@@ -1,5 +1,8 @@
-import { RuntimeScreen } from '@/components/layout/runtime-screen';
+import { HomeView } from '@/features/home/home-view';
+import { pageMetadata } from '@/lib/metadata';
+
+export const metadata = pageMetadata('en', 'home');
 
 export default function RuntimePage() {
-  return <RuntimeScreen locale="en" />;
+  return <HomeView locale="en" />;
 }
