@@ -24,7 +24,7 @@ export function UnavailableButton({
   variant = 'secondary',
   icon = 'download',
   descriptionId,
-}: ActionProps & { descriptionId: string }) {
+}: ActionProps & { descriptionId?: string }) {
   return (
     <button
       className={`button button--${variant}`}

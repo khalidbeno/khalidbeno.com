@@ -8,7 +8,8 @@
   --color-accent: #e6edf7;
   --color-border: #d6deea;
   --color-focus: #335779;
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Courier New', monospace;
   --text-base: 1rem;
   --text-2xl: 1.5rem;

@@ -64,6 +64,7 @@ export function SiteHeader({
   return (
     <header
       className={`site-header container${landing ? ' landing-header' : ''}`}
+      data-section={landing ? section : undefined}
     >
       <a
         className="wordmark"

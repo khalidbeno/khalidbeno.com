@@ -6,10 +6,12 @@ export function CVAction({
   locale,
   id = 'cv-status',
   primary = false,
+  showNotice = true,
 }: {
   locale: Locale;
   id?: string;
   primary?: boolean;
+  showNotice?: boolean;
 }) {
   const copy = interfaceCopy[locale];
   return (
@@ -26,14 +28,16 @@ export function CVAction({
       ) : (
         <>
           <UnavailableButton
-            descriptionId={id}
+            descriptionId={showNotice ? id : undefined}
             variant={primary ? 'primary' : 'secondary'}
           >
             {copy.cv}
           </UnavailableButton>
-          <span id={id} className="action-note">
-            {copy.cvPending}
-          </span>
+          {showNotice ? (
+            <span id={id} className="action-note">
+              {copy.cvPending}
+            </span>
+          ) : null}
         </>
       )}
     </div>

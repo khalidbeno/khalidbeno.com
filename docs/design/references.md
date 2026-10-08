@@ -26,4 +26,8 @@ Referencias para principios, patrones, jerarquía, interacción y accesibilidad.
 
 ## Repositorios externos
 
-Si se proporciona un repositorio de design skills, leerlo como referencia. No copiarlo al proyecto, crear repositorios Git anidados ni submódulos sin orden explícita. No se ha recibido ninguno en esta fase.
+Si se proporciona un repositorio de design skills, leerlo como referencia. No copiarlo al proyecto, crear repositorios Git anidados ni submódulos sin orden explícita.
+
+## Apple Design Skill — principios
+
+[Apple Design Skill de Emil Kowalski](https://github.com/emilkowalski/skills/blob/main/skills/apple-design/SKILL.md), leído completo el 8 de octubre de 2026 por instrucción del usuario. Referencia externa de PRINCIPIOS: tipografía de sistema, tracking/leading según tamaño, materiales ligeros, proximidad, feedback inmediato y craft. No es fuente de código ni assets. Sus ejemplos de springs/gestos no se implementan en esta fase; las restricciones del usuario prevalecen. La composición visual sigue guiada por 01-home.png y el rail aprobado.

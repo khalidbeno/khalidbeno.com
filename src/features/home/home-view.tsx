@@ -4,7 +4,6 @@ import { profile, profileCopy } from '@/content/profile';
 import { interfaceCopy } from '@/content/interface';
 import { PageFrame } from '@/components/layout/page-frame';
 import { ButtonLink } from '@/components/ui/button';
-import { Asset } from '@/components/ui/asset';
 import { Disciplines } from '@/components/sections/disciplines';
 import { CVAction } from '@/components/sections/cv-action';
 
@@ -17,6 +16,8 @@ export function HomeSection({
 }) {
   const copy = profileCopy[locale];
   const ui = interfaceCopy[locale];
+  const cities = locale === 'es' ? 'Madrid y Dublín.' : 'Madrid and Dublin.';
+  const headlineLead = copy.headline.slice(0, -cities.length);
   return (
     <section
       tabIndex={-1}
@@ -28,7 +29,10 @@ export function HomeSection({
         <div className="home-copy">
           <p className="eyebrow">{profile.name} · Madrid / Dublin</p>
           <h1>{profile.name}</h1>
-          <p className="home-headline">{copy.headline}</p>
+          <p className="home-headline">
+            {headlineLead}
+            <span className="home-city-pair">{cities}</span>
+          </p>
           <p className="home-introduction">{copy.introduction}</p>
           <div className="actions">
             <ButtonLink
@@ -38,18 +42,13 @@ export function HomeSection({
             >
               {ui.projects}
             </ButtonLink>
-            <CVAction locale={locale} id="home-cv-status" />
+            <CVAction locale={locale} id="home-cv-status" showNotice={false} />
           </div>
           <Disciplines locale={locale} />
         </div>
-        <div className="home-portrait">
-          <Asset
-            src={profile.portrait}
-            alt={profile.name}
-            label={ui.portraitPending}
-            portrait
-            priority
-          />
+        <div className="home-media" aria-hidden="true">
+          {/* Reserved for a future authorized next/image portrait; no placeholder person. */}
+          <div className="home-media-light" />
         </div>
       </section>
     </section>

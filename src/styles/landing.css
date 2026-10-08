@@ -1,5 +1,7 @@
 .portfolio-landing {
   --rail-width: 12rem;
+  --page-gutter: var(--gutter);
+  --content-max: var(--container-page);
   --scroll-progress: 0;
   background: var(--color-background);
 }
@@ -17,7 +19,7 @@
 .portfolio-landing .portfolio-section::before {
   content: '';
   position: absolute;
-  inset: -3rem calc(-1 * var(--gutter));
+  inset: -3rem calc(-1 * var(--page-gutter));
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(
@@ -32,16 +34,6 @@
     rgb(230 237 247 / 0.7),
     transparent 65%
   );
-}
-.portfolio-landing .portfolio-section.home-main {
-  padding-block: 0 2rem;
-}
-.portfolio-landing .portfolio-section .home-hero {
-  min-height: calc(100svh - 7rem);
-}
-.portfolio-landing .portfolio-section .home-copy h1 {
-  font-size: clamp(3rem, 5.6vw, 6.4rem);
-  white-space: normal;
 }
 .notes-preview-actions {
   margin-top: 2rem;
@@ -68,16 +60,16 @@
   .portfolio-landing > .site-header,
   .portfolio-landing > .site-footer {
     width: min(
-      calc(100% - var(--rail-width) - var(--gutter) * 2),
-      var(--container-page)
+      calc(100% - var(--rail-width) - var(--page-gutter) * 2),
+      var(--content-max)
     );
     margin-left: calc(
       var(--rail-width) +
         (
           100% - var(--rail-width) -
             min(
-              100% - var(--rail-width) - var(--gutter) * 2,
-              var(--container-page)
+              100% - var(--rail-width) - var(--page-gutter) * 2,
+              var(--content-max)
             )
         ) /
         2
@@ -179,15 +171,6 @@
   }
   .scroll-rail {
     left: 1.5rem;
-  }
-  .portfolio-landing .portfolio-section .home-hero {
-    grid-template-columns: 1fr 0.8fr;
-  }
-  .portfolio-landing .portfolio-section .home-copy h1 {
-    font-size: 3.7rem;
-  }
-  .portfolio-landing .portfolio-section .home-portrait .asset {
-    min-height: 22rem;
   }
   .portfolio-landing .portfolio-section .labs-columns {
     grid-template-columns: 1fr;

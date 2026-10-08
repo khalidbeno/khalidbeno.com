@@ -31,7 +31,7 @@ Documentar hover, focus, active, disabled y estados de contenido cuando correspo
 | Elemento   | Regla                                                                                                                                      |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | Palette    | Fondo #f6f8fb, superficies blancas, azul grisáceo #e6edf7, texto #10151c y secundario #5c677b. Nada neon.                                  |
-| Typography | Stack Arial/Helvetica local; H1 fluido 2.4–3.8rem, tracking editorial moderado, Home de mayor escala. Fuentes definitivas pendientes.      |
+| Typography | system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; sin descargar fuentes. Home usa escala display propia.                 |
 | Spacing    | Unidad .25rem; gutter fluido 1.25–4.5rem; separación entre áreas 3–6rem.                                                                   |
 | Containers | Página hasta 83rem, lectura hasta 42rem; anchos fluidos y márgenes automáticos.                                                            |
 | Grid       | Home 2 columnas, Experience ~40/60, Labs dos áreas; móvil en flujo único.                                                                  |
@@ -46,3 +46,15 @@ Documentar hover, focus, active, disabled y estados de contenido cuando correspo
 | Responsive | Colapsar grid por contenido, no escalar desktop; validar 320–2560px, textos ES/EN y teclado.                                               |
 
 Fondos con curvas decorativas CSS y lavados tonales suaves, coherentes con capturas. No añaden animación ni ocultan texto. Datos ficticios de capturas no se reproducen. La fidelidad fotográfica y About siguen pendientes de assets/referencia.
+
+## Home — refinamiento editorial
+
+Primera pantalla compuesta aproximadamente como copy 44% / media 56% después del rail. --rail-width, --page-gutter y --content-max coordinan la reserva lateral y el contenedor; no se introducen offsets por sección. H1 desktop 64–110px según ancho, peso 700, leading 1.01 y tracking negativo; body 18–22px, leading 1.5 y tracking neutro; eyebrow de 11px con tracking positivo. En móvil se reduce escala y se conserva copy primero.
+
+El inicio del bloque usa espacio fluido ligado al viewport, sin centrar matemáticamente. Eyebrow→nombre 32–48px; nombre→headline 14px; headline→body 32px; body→acciones 38px; acciones→chips 40px. Valores calibrados visualmente, con ajustes móviles. Headline equilibrado y nombres Madrid/Dublín unidos para evitar cortes incómodos. Copy aprobado sin cambios.
+
+Media reservada con iluminación radial y curvas sutiles CSS, sin silueta, persona falsa, imagen ni texto de placeholder. Preparada para un next/image autorizado posteriormente; foto y background final no integrados. Las decoraciones se recortan dentro de media sin ocultar texto. El estado disabled de CV en Home no muestra notas de desarrollo; Contact conserva su explicación.
+
+Top actions transparentes en Home, con material ligero individual en selector de idioma; header recupera su superficie de lectura al entrar en las siguientes secciones. Rail sin rediseño. CTAs con feedback de presión scale(.98), transiciones cortas y foco visible. Chips pequeños, discretos y agrupados; Networks/AI mantienen menor peso. Reduced motion evita escala/transiciones; preferencias de contraste/transparencia refuerzan superficies.
+
+Principios aplicados del Apple Design Skill: simplicidad con propósito, jerarquía tipográfica, consistencia espacial, respuesta inmediata, materiales funcionales y craft. Es una referencia de principios; no se copian código, assets, apple.com ni sus animaciones físicas. No se añaden librerías.
