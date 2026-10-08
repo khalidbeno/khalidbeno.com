@@ -10,8 +10,12 @@ import { ContactSection } from '@/features/contact/contact-view';
 import { NotesPreviewSection } from '@/features/notes/notes-preview-section';
 export function PortfolioLanding({ locale }: { locale: Locale }) {
   return (
-    <PageFrame locale={locale} active="home" landing>
-      <ScrollRailNavigation locale={locale} />
+    <PageFrame
+      locale={locale}
+      active="home"
+      landing
+      navigation={<ScrollRailNavigation locale={locale} />}
+    >
       <HomeSection locale={locale} />
       <AboutSection locale={locale} />
       <ExperienceSection locale={locale} />

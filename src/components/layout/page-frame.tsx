@@ -11,6 +11,7 @@ export function PageFrame({
   className = '',
   alternatePath,
   landing = false,
+  navigation,
 }: {
   locale: Locale;
   active: RouteKey;
@@ -18,6 +19,7 @@ export function PageFrame({
   className?: string;
   alternatePath?: string;
   landing?: boolean;
+  navigation?: ReactNode;
 }) {
   return (
     <div
@@ -27,6 +29,7 @@ export function PageFrame({
       <a className="skip-link" href="#main-content">
         {interfaceCopy[locale].skip}
       </a>
+      {navigation}
       <SiteHeader
         locale={locale}
         active={active}

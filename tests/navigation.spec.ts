@@ -42,13 +42,10 @@ for (const locale of ['es', 'en'] as const) {
     ).not.toBe('none');
     await page.keyboard.press('Enter');
     await expect(page.getByRole('main')).toBeFocused();
-    const summary = page.locator('.mobile-navigation summary');
+    const summary = page.locator('.mobile-menu-toggle');
     await summary.focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('.mobile-navigation')).toHaveAttribute(
-      'open',
-      '',
-    );
+    await expect(summary).toHaveAttribute('aria-expanded', 'true');
     await expect(page.locator('.mobile-navigation nav')).toBeVisible();
     await page.keyboard.press('Tab');
     await expect(
@@ -56,10 +53,7 @@ for (const locale of ['es', 'en'] as const) {
     ).toBeFocused();
     await summary.focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('.mobile-navigation')).not.toHaveAttribute(
-      'open',
-      '',
-    );
+    await expect(summary).toHaveAttribute('aria-expanded', 'false');
     await page
       .getByRole('link', {
         name: locale === 'es' ? 'Switch to English' : 'Cambiar a español',

@@ -55,6 +55,14 @@ El inicio del bloque usa espacio fluido ligado al viewport, sin centrar matemát
 
 Media reservada con iluminación radial y curvas sutiles CSS, sin silueta, persona falsa, imagen ni texto de placeholder. Preparada para un next/image autorizado posteriormente; foto y background final no integrados. Las decoraciones se recortan dentro de media sin ocultar texto. El estado disabled de CV en Home no muestra notas de desarrollo; Contact conserva su explicación.
 
-Top actions transparentes en Home, con material ligero individual en selector de idioma; header recupera su superficie de lectura al entrar en las siguientes secciones. Rail sin rediseño. CTAs con feedback de presión scale(.98), transiciones cortas y foco visible. Chips pequeños, discretos y agrupados; Networks/AI mantienen menor peso. Reduced motion evita escala/transiciones; preferencias de contraste/transparencia refuerzan superficies.
+Top actions transparentes, con material ligero individual en selector de idioma y acciones; sin barra completa. CTAs con feedback de presión scale(.98), transiciones cortas y foco visible. Chips pequeños, discretos y agrupados; Networks/AI mantienen menor peso. Reduced motion evita escala/transiciones; preferencias de contraste/transparencia refuerzan superficies.
 
 Principios aplicados del Apple Design Skill: simplicidad con propósito, jerarquía tipográfica, consistencia espacial, respuesta inmediata, materiales funcionales y craft. Es una referencia de principios; no se copian código, assets, apple.com ni sus animaciones físicas. No se añaden librerías.
+
+## Sidebar y marca KB
+
+Sidebar como región real de layout, fija 100svh, fondo hielo #f1f4f8 y separación tonal discreta. Ancho 224px compacto (901–1100), 256px laptop (1101–1399), 280–320px desktop; main ocupa el resto sin límite externo de container. Secciones conservan containers editoriales interiores; Home mantiene su composición aprobada. Tokens: --sidebar-width, --sidebar-width-compact, --sidebar-gutter, --rail-offset, --nav-item-gap.
+
+LogoMark tipográfico: peso 800, leading 1, tracking negativo y ajuste óptico K/B. Sin icono, imagen, círculo, fondo de botón ni efectos. En sidebar se alinea con el inicio de labels y precede a la lista con distancia acotada; el grupo completo queda centrado en la altura disponible. Filas en grid dot/número/label, números tabulares, línea base de 1px y progreso gris azulado. Activo mediante dot mayor, peso y contraste; sin pills ni glow. Labels secundarios #5c6b80 conservan contraste AA sobre la superficie.
+
+Hasta 900px se oculta la región y aparece KB / ES-EN / Menú. Botón real con aria-expanded y aria-controls, panel desplazable en poca altura, cierre al navegar y Escape; foco visible y destinos nativos. Sin JavaScript se ofrece details/summary. En pantallas bajas la sidebar puede desplazarse verticalmente para no perder destinos.

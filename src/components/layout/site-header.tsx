@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { LogoMark } from '@/components/ui/logo-mark';
 import { sections } from '@/config/sections';
 import { localizedPath, type Locale } from '@/config/locales';
 import { routes, routePath, type RouteKey } from '@/config/routes';
@@ -46,6 +47,19 @@ export function SiteHeader({
 }) {
   const other = locale === 'es' ? 'en' : 'es';
   const [section, setSection] = useState<RouteKey>('home');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', close);
+    return () => document.removeEventListener('keydown', close);
+  }, [menuOpen]);
   useEffect(() => {
     if (!landing) return;
     const update = (event: Event) =>
@@ -71,7 +85,7 @@ export function SiteHeader({
         href={localizedPath(locale)}
         aria-label={`${profile.name} — ${locale === 'es' ? 'Inicio' : 'Home'}`}
       >
-        KB
+        <LogoMark />
       </a>
       <nav
         className="desktop-nav"
@@ -112,27 +126,71 @@ export function SiteHeader({
           {interfaceCopy[locale].contact}
         </a>
       </div>
-      <details className="mobile-navigation">
-        <summary>
-          {interfaceCopy[locale].menu}
-          <span aria-hidden="true">＋</span>
-        </summary>
-        <nav aria-label={locale === 'es' ? 'Principal móvil' : 'Mobile main'}>
-          <NavigationLinks
-            locale={locale}
-            active={landing ? section : active}
-            landing={landing}
-          />
-          {!landing ? (
-            <a
-              href={`${localizedPath(locale)}#contact`}
-              aria-current={active === 'contact' ? 'page' : undefined}
+      {landing ? (
+        <noscript>
+          <style>
+            {
+              '.landing-header > .mobile-navigation { display: none !important; }'
+            }
+          </style>
+          <details className="mobile-navigation mobile-navigation-fallback">
+            <summary>{interfaceCopy[locale].menu}</summary>
+            <nav
+              aria-label={locale === 'es' ? 'Principal móvil' : 'Mobile main'}
             >
-              {interfaceCopy[locale].contact}
-            </a>
-          ) : null}
-        </nav>
-      </details>
+              <NavigationLinks locale={locale} active={active} landing />
+            </nav>
+          </details>
+        </noscript>
+      ) : null}
+      {landing ? (
+        <div className="mobile-navigation">
+          <button
+            ref={menuButton}
+            type="button"
+            className="mobile-menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="landing-mobile-menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {interfaceCopy[locale].menu}
+            <span aria-hidden="true">{menuOpen ? '−' : '＋'}</span>
+          </button>
+          <nav
+            id="landing-mobile-menu"
+            hidden={!menuOpen}
+            aria-label={locale === 'es' ? 'Principal móvil' : 'Mobile main'}
+            onClick={(event) => {
+              if (event.target instanceof Element && event.target.closest('a'))
+                setMenuOpen(false);
+            }}
+          >
+            <NavigationLinks locale={locale} active={section} landing />
+          </nav>
+        </div>
+      ) : (
+        <details className="mobile-navigation">
+          <summary>
+            {interfaceCopy[locale].menu}
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <nav aria-label={locale === 'es' ? 'Principal móvil' : 'Mobile main'}>
+            <NavigationLinks
+              locale={locale}
+              active={landing ? section : active}
+              landing={landing}
+            />
+            {!landing ? (
+              <a
+                href={`${localizedPath(locale)}#contact`}
+                aria-current={active === 'contact' ? 'page' : undefined}
+              >
+                {interfaceCopy[locale].contact}
+              </a>
+            ) : null}
+          </nav>
+        </details>
+      )}
     </header>
   );
 }

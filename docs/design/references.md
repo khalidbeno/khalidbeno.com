@@ -22,6 +22,8 @@ About pendiente de referencia final. Se implementa una composición sencilla seg
 
 ## Regla de uso
 
+Sidebar: Kashmir se usa únicamente como inspiración estructural según la instrucción y esquema del usuario del 8 de octubre de 2026. Su antigua carpeta local no está disponible, por lo que no se afirma una comparación visual directa. No se copian medidas, paleta, código ni assets; la adaptación conserva el portfolio claro/editorial.
+
 Referencias para principios, patrones, jerarquía, interacción y accesibilidad. No copiar componentes, código, textos ni assets. Registrar origen, aspecto relevante y permiso de cualquier asset antes de usarlo.
 
 ## Repositorios externos

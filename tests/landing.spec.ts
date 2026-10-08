@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+﻿import { test, expect } from '@playwright/test';
 import { sections, sectionKeys } from '../src/config/sections';
 import { localizedPath } from '../src/config/locales';
 
@@ -90,13 +90,13 @@ for (const locale of ['es', 'en'] as const) {
     });
     await page.setViewportSize({ width: 375, height: 900 });
     await expect(page.locator('.scroll-rail')).toBeHidden();
-    await expect(page.locator('.mobile-navigation summary')).toBeVisible();
-    await page.locator('.mobile-navigation summary').click();
+    await expect(page.locator('.mobile-menu-toggle')).toBeVisible();
+    await page.locator('.mobile-menu-toggle').click();
     await page.locator('.mobile-navigation a[href="#contact"]').click();
     await expect(page).toHaveURL(/#contact$/);
-    await expect(page.locator('.mobile-navigation')).not.toHaveAttribute(
-      'open',
-      '',
+    await expect(page.locator('.mobile-menu-toggle')).toHaveAttribute(
+      'aria-expanded',
+      'false',
     );
     await expect(page.locator('#contact')).toBeFocused();
     await expect(
