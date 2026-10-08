@@ -1,11 +1,43 @@
 /* Home only: editorial rhythm, with space reserved for the approved portrait. */
+.portfolio-landing > .site-backdrop {
+  inset: 0 0 auto;
+  height: 100svh;
+  background:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgb(255 255 255 / 0.95),
+      transparent 55%
+    ),
+    radial-gradient(ellipse at 90% 32%, #e5edf7, transparent 65%), #f3f6fa;
+}
+.portfolio-landing > .site-backdrop::before,
+.portfolio-landing > .site-backdrop::after {
+  z-index: auto;
+  width: 150%;
+  height: clamp(24rem, 50vw, 60rem);
+  border: 1px solid rgb(255 255 255 / 0.78);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.27);
+  box-shadow: 0 -16px 48px rgb(255 255 255 / 0.18);
+  transform: rotate(-18deg);
+}
+.portfolio-landing > .site-backdrop::before {
+  top: 26svh;
+  left: -30%;
+  right: auto;
+}
+.portfolio-landing > .site-backdrop::after {
+  top: 66svh;
+  left: -10%;
+  transform: rotate(-24deg);
+  background: rgb(235 242 251 / 0.3);
+}
 .portfolio-landing #home {
   padding-block: 0;
   isolation: isolate;
 }
 .portfolio-landing #home::before {
-  inset: 0 calc(-1 * var(--page-gutter));
-  background: radial-gradient(ellipse at 84% 46%, #e8eef7 0, transparent 64%);
+  content: none;
 }
 .portfolio-landing #home .home-hero {
   display: grid;
@@ -136,16 +168,11 @@
   position: absolute;
   inset: 8% -3% 2% 6%;
   border-radius: 50% 48% 44% 50%;
-  background: radial-gradient(
-    ellipse at 50% 42%,
-    rgb(255 255 255 / 0.82),
-    rgb(230 238 249 / 0.35) 50%,
-    transparent 74%
-  );
+  background: none;
 }
 .home-media::before,
 .home-media::after {
-  content: '';
+  content: none;
   position: absolute;
   pointer-events: none;
   width: 115%;

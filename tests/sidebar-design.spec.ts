@@ -23,10 +23,12 @@ for (const locale of ['es', 'en']) {
       if (width > 900) {
         const rail = await page.locator('.scroll-rail').boundingBox();
         const main = await page.locator('main').boundingBox();
-        expect(rail!.height).toBe(height);
-        expect(main!.x).toBe(rail!.width);
+        expect(rail!.height).toBeLessThan(height);
+        expect(rail!.y).toBeGreaterThan(0);
+        expect(rail!.y + rail!.height).toBeLessThan(height);
+        expect(main!.x).toBeGreaterThan(rail!.x + rail!.width);
         expect(main!.width + main!.x).toBe(width);
-        expect(rail!.width).toBeGreaterThanOrEqual(
+        expect(main!.x).toBeGreaterThanOrEqual(
           width >= 1400 ? 280 : width >= 1100 ? 240 : 210,
         );
         await expect(page.locator('main .scroll-rail')).toHaveCount(0);

@@ -81,9 +81,6 @@
     grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
     grid-template-rows: auto 1fr auto;
   }
-  .portfolio-landing > .site-backdrop {
-    left: var(--sidebar-width);
-  }
   .portfolio-landing > .container {
     grid-column: 2;
     width: 100%;
@@ -119,22 +116,30 @@
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    inset: 0 auto auto 0;
-    width: var(--sidebar-width);
-    height: 100svh;
-    padding: 2rem var(--sidebar-gutter);
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    width: calc(var(--sidebar-width) - 2rem);
+    max-height: calc(100svh - 2rem);
+    padding: 2rem 1.5rem;
     z-index: var(--z-navigation);
-    background: #f1f4f8;
-    border-right: 1px solid rgb(115 134 159 / 0.06);
+    background: rgb(255 255 255 / 0.56);
+    backdrop-filter: blur(18px) saturate(105%);
+    border: 1px solid rgb(255 255 255 / 0.78);
+    border-radius: 1.375rem;
+    box-shadow:
+      0 8px 32px rgb(47 67 96 / 0.045),
+      0 1px 3px rgb(47 67 96 / 0.025);
+    --nav-item-gap: 0.25rem;
   }
   .rail-signature {
     width: max-content;
     align-self: flex-start;
     margin-left: calc(var(--rail-offset) + 3.125rem);
-    margin-bottom: clamp(2.5rem, 6svh, 4rem);
+    margin-bottom: 2rem;
   }
   .rail-signature .logo-mark {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
   }
   .rail-index {
     position: relative;
@@ -152,7 +157,7 @@
     grid-template-columns: 0.5rem 1.375rem minmax(0, 1fr);
     align-items: center;
     column-gap: 0.75rem;
-    min-height: 3rem;
+    min-height: 2.75rem;
     color: #5c6b80;
     font-size: 0.75rem;
     letter-spacing: 0.055em;
@@ -174,7 +179,6 @@
     height: 0.3125rem;
     border-radius: 50%;
     background: #8d9bb0;
-    box-shadow: 0 0 0 3px #f1f4f8;
     transition:
       transform 160ms ease,
       background-color 160ms ease;
@@ -197,8 +201,8 @@
   }
   .rail-track {
     position: absolute;
-    top: 1.5rem;
-    bottom: 1.5rem;
+    top: 1.375rem;
+    bottom: 1.375rem;
     left: var(--rail-offset);
     width: 1px;
     background: rgb(136 155 180 / 0.28);
@@ -228,6 +232,9 @@
   .rail-index a {
     font-size: 0.6875rem;
     column-gap: 0.625rem;
+  }
+  .scroll-rail {
+    padding-inline: 1.25rem;
   }
   .rail-signature {
     margin-left: calc(var(--rail-offset) + 2.875rem);
@@ -335,5 +342,10 @@
   .landing-header .header-actions,
   .mobile-menu-toggle {
     background: #f6f8fb;
+  }
+  .scroll-rail {
+    background: #f7f9fc;
+    backdrop-filter: none;
+    border-color: #a6b3c4;
   }
 }
