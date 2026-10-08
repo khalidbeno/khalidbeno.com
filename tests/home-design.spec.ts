@@ -9,7 +9,7 @@ const viewports = [
   { width: 375, height: 812 },
 ];
 for (const locale of ['es', 'en'] as const) {
-  test(`home craft ${locale}: copy, reserved media and actions fit the first screen`, async ({
+  test(`home craft ${locale}: portrait loads, copy and actions fit the first screen`, async ({
     page,
   }, info) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -20,8 +20,18 @@ for (const locale of ['es', 'en'] as const) {
       const home = page.locator('#home');
       await expect(home.locator('h1')).toHaveText('Khaled Beno');
       await expect(home.locator('.home-media')).toHaveCount(1);
+      const portrait = home.locator('img.home-portrait');
+      await expect(portrait).toBeVisible();
+      await expect
+        .poll(() =>
+          portrait.evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+        )
+        .toBe(true);
       await expect(
-        home.locator('.asset, img, .portrait-placeholder, .action-note'),
+        home.locator('.asset, .portrait-placeholder, .action-note'),
       ).toHaveCount(0);
       await expect(
         home.getByRole('button', {

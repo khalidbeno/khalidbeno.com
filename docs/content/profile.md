@@ -27,8 +27,12 @@ Software Development → Cloud & Systems → Cybersecurity. Networks y Applied A
 
 ## Pendiente de aportar y validar
 
-Fotografía original y permisos, CV autorizado, formación, niveles de idiomas y titular contractual exacto. Los datos de configuración Git y textos ilustrativos de capturas no se utilizan como fuente personal. Las áreas de posicionamiento no acreditan seniority ni cinco especialidades equivalentes.
+Fotografía y permisos para About, CV autorizado, formación, niveles de idiomas y titular contractual exacto. Los datos de configuración Git y textos ilustrativos de capturas no se utilizan como fuente personal. Las áreas de posicionamiento no acreditan seniority ni cinco especialidades equivalentes.
 
 ## Publicación
 
 No generar una biografía a partir del posicionamiento. Cada afirmación requiere dato aportado y aprobación; preparar traducción equivalente ES/EN tras confirmar el texto fuente.
+
+## Retrato autorizado para Home
+
+El 8 de octubre de 2026 el usuario proporciona y autoriza integrar en el hero ES/EN el PNG transparente «Retrato juvenil con camisa blanca.png». Copia exacta en `public/images/hero/khaled-cutout.png` (1145 × 1374px), conservando el original. Sin retoques ni generación de una persona; esta autorización corresponde al hero, no cambia el contenido profesional.

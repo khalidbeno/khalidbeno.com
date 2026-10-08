@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { Locale } from '@/config/locales';
 import { localizedPath } from '@/config/locales';
 import { profile, profileCopy } from '@/content/profile';
@@ -46,9 +47,20 @@ export function HomeSection({
           </div>
           <Disciplines locale={locale} />
         </div>
-        <div className="home-media" aria-hidden="true">
-          {/* Reserved for a future authorized next/image portrait; no placeholder person. */}
-          <div className="home-media-light" />
+        <div className="home-media">
+          <Image
+            className="home-portrait"
+            src="/images/hero/khaled-cutout.png"
+            alt={
+              locale === 'es'
+                ? 'Retrato de Khaled Beno'
+                : 'Portrait of Khaled Beno'
+            }
+            width={1145}
+            height={1374}
+            sizes="(max-width: 900px) 360px, (max-width: 1100px) 38vw, 44vw"
+            preload
+          />
         </div>
       </section>
     </section>
