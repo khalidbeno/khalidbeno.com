@@ -64,16 +64,10 @@
   display: none;
 }
 .logo-mark {
-  display: inline-flex;
-  align-items: baseline;
-  font-size: 2.25rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.075em;
-  color: var(--color-foreground);
-}
-.logo-mark span:last-child {
-  margin-left: -0.015em;
+  display: block;
+  width: auto;
+  height: 2.25rem;
+  object-fit: contain;
 }
 @media (min-width: 901px) {
   .portfolio-landing {
@@ -144,8 +138,7 @@
     margin-bottom: 2.5rem;
   }
   .rail-signature .logo-mark {
-    font-size: 2.75rem;
-    letter-spacing: -0.055em;
+    height: 2.875rem;
   }
   .rail-index {
     position: relative;
@@ -274,7 +267,7 @@
     display: none;
   }
   .landing-header .logo-mark {
-    font-size: 1.9rem;
+    height: 2rem;
   }
   .mobile-menu-toggle {
     display: flex;

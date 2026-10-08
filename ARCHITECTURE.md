@@ -1,4 +1,4 @@
-# Arquitectura
+﻿# Arquitectura
 
 ## Estado tras la implementación nocturna
 
@@ -43,7 +43,7 @@ Page → Section → Feature component → UI primitives. Presentación recibe d
 
 La experiencia principal es PortfolioLanding en / y /en: un PageFrame, un SiteHeader, un main y un SiteFooter. Compone HomeSection, AboutSection, ExperienceSection, ProjectsSection, LabsSection, ContactSection y NotesPreviewSection sin wrappers globales internos. Un h1 en Home y h2 para los siguientes titulares. Los índices reutilizan sections/presentación con encabezado de página.
 
-ScrollRailNavigation es una frontera cliente aislada: IntersectionObserver para sección activa, scroll pasivo agrupado con requestAnimationFrame para progreso global, ResizeObserver y limpieza de listeners. Es una región hermana de main mediante la prop navigation de PageFrame. La landing reserva dos columnas reales: --sidebar-width y minmax(0, 1fr); header, main y footer ocupan la segunda. El rail aparece solo en la landing y sobre 900px; --rail-width conserva el alias de ancho sin offsets por feature. SiteHeader contiene idioma y menú móvil con botón, panel no modal, cierre al navegar y Escape con retorno de foco. Una alternativa details en noscript mantiene navegación nativa sin JavaScript. El contenido y la landing siguen en servidor; progreso y selección automática requieren JavaScript. LogoMark compartido usa exclusivamente tipografía/CSS.
+ScrollRailNavigation es una frontera cliente aislada: IntersectionObserver para sección activa, scroll pasivo agrupado con requestAnimationFrame para progreso global, ResizeObserver y limpieza de listeners. Es una región hermana de main mediante la prop navigation de PageFrame. La landing reserva dos columnas reales: --sidebar-width y minmax(0, 1fr); header, main y footer ocupan la segunda. El rail aparece solo en la landing y sobre 900px; --rail-width conserva el alias de ancho sin offsets por feature. SiteHeader contiene idioma y menú móvil con botón, panel no modal, cierre al navegar y Escape con retorno de foco. Una alternativa details en noscript mantiene navegación nativa sin JavaScript. El contenido y la landing siguen en servidor; progreso y selección automática requieren JavaScript. LogoMark compartido usa next/image con el símbolo PNG transparente autorizado y sin texto, con ruta/dimensiones en src/config/brand.ts para futura sustitución vectorial. Favicon reproduce el mismo asset.
 
 About, Experience, Labs y Contact redirigen a anchors. Projects y Notes conservan índices completos; NotesPreview no duplica búsqueda/filtros, que siguen mediante GET en /notes. Sitemap excluye redirects y hashes. Los fondos SVG/CSS y placeholders son originales; ninguna captura se importa ni copia a public.
 

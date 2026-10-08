@@ -1,8 +1,15 @@
+import Image from 'next/image';
+import { brandLogo } from '@/config/brand';
+
 export function LogoMark() {
   return (
-    <span className="logo-mark" aria-hidden="true">
-      <span>K</span>
-      <span>B</span>
-    </span>
+    <Image
+      className="logo-mark"
+      src={brandLogo.src}
+      width={brandLogo.width}
+      height={brandLogo.height}
+      alt=""
+      unoptimized
+    />
   );
 }
