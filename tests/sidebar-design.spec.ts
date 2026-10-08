@@ -29,7 +29,7 @@ for (const locale of ['es', 'en']) {
         expect(main!.x).toBeGreaterThan(rail!.x + rail!.width);
         expect(main!.width + main!.x).toBe(width);
         expect(main!.x).toBeGreaterThanOrEqual(
-          width >= 1400 ? 280 : width >= 1100 ? 240 : 210,
+          width >= 1400 ? 224 : width >= 1100 ? 208 : 184,
         );
         await expect(page.locator('main .scroll-rail')).toHaveCount(0);
         await expect(page.locator('.rail-index a')).toHaveCount(7);

@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Locale } from '@/config/locales';
 import { sections, type SectionKey } from '@/config/sections';
-import { LogoMark } from '@/components/ui/logo-mark';
 
 export function ScrollRailNavigation({ locale }: { locale: Locale }) {
   const [active, setActive] = useState<SectionKey>('home');
@@ -92,13 +91,6 @@ export function ScrollRailNavigation({ locale }: { locale: Locale }) {
         locale === 'es' ? 'Secciones del portfolio' : 'Portfolio sections'
       }
     >
-      <a
-        href="#home"
-        className="wordmark rail-signature"
-        aria-label={`Khaled Beno — ${locale === 'es' ? 'Inicio' : 'Home'}`}
-      >
-        <LogoMark />
-      </a>
       <div className="rail-index">
         <span className="rail-track" aria-hidden="true">
           <span className="rail-progress" />

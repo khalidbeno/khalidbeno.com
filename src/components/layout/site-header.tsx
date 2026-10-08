@@ -82,7 +82,7 @@ export function SiteHeader({
     >
       <a
         className="wordmark"
-        href={localizedPath(locale)}
+        href={landing ? '#home' : localizedPath(locale)}
         aria-label={`${profile.name} — ${locale === 'es' ? 'Inicio' : 'Home'}`}
       >
         <LogoMark />
