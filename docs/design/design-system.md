@@ -1,4 +1,4 @@
-# Sistema de diseño
+﻿# Sistema de diseño
 
 ## Dirección
 
@@ -61,8 +61,8 @@ Principios aplicados del Apple Design Skill: simplicidad con propósito, jerarqu
 
 ## Sidebar y marca KB
 
-La reserva de layout conserva 224px compacto (901–1100), 256px laptop (1101–1399), 280–320px desktop; main ocupa el resto sin límite externo de container. Por instrucción posterior del usuario, la pieza visual ya no es una columna sólida: panel flotante fijo, centrado verticalmente, separado 16px de los bordes laterales de su reserva y con altura ajustada al logo/lista. Fondo blanco al 56%, blur 18px, borde blanco tenue, radius 22px y sombra ligera. El fondo del hero pasa por detrás del panel y del contenido. Reduced transparency/contrast ofrece superficie sólida accesible. Secciones conservan containers editoriales interiores; Home mantiene su composición aprobada. Tokens de reserva conservados sin nuevas capas de layout.
+La reserva de layout conserva 224px compacto (901–1100), 256px laptop (1101–1399), 280–320px desktop; main ocupa el resto sin límite externo de container. Por instrucción posterior del usuario, la pieza visual ya no es una columna sólida: panel flotante fijo, centrado verticalmente, separado 24px de los bordes laterales de su reserva y con altura ajustada al logo/lista. Material translúcido con blanco al 18–38%, blur 24px, borde blanco tenue, radius 24px, highlight interior y sombra suave de elevación. Ondas con mayor separación tonal y luz dirigida también detrás del rail hacen perceptible el blur. El fondo del hero pasa por detrás del panel y del contenido. Reduced transparency/contrast ofrece superficie sólida accesible. Secciones conservan containers editoriales interiores; Home mantiene su composición aprobada. Tokens de reserva conservados sin nuevas capas de layout.
 
-LogoMark tipográfico: peso 800, leading 1, tracking negativo y ajuste óptico K/B. Sin icono, imagen, círculo, fondo de botón ni efectos. En sidebar se alinea con el inicio de labels; logo de 40px y separación de 32px antes de la lista. Filas de 44px con gap de 4px, grid dot/número/label, números tabulares, línea base de 1px y progreso gris azulado. Activo mediante dot mayor, peso y contraste; sin pills ni glow. Labels secundarios #5c6b80 conservan contraste sobre la superficie translúcida clara.
+LogoMark tipográfico: peso 800, leading 1, tracking negativo y ajuste óptico K/B. Sin icono, imagen, círculo, fondo de botón ni efectos. En sidebar se alinea con el inicio de labels; logo de 44px con tracking -.055em y separación de 40px antes de la lista. Filas de 44px con gap de 8px, grid dot/número/label, números tabulares, línea base de 1px y progreso gris azulado. Activo mediante dot mayor, peso y contraste; sin pills ni glow. Labels secundarios #526278 conservan contraste sobre la superficie translúcida clara.
 
 Hasta 900px se oculta la región y aparece KB / ES-EN / Menú. Botón real con aria-expanded y aria-controls, panel desplazable en poca altura, cierre al navegar y Escape; foco visible y destinos nativos. Sin JavaScript se ofrece details/summary. En pantallas bajas la sidebar puede desplazarse verticalmente para no perder destinos.

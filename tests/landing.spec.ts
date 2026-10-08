@@ -74,6 +74,10 @@ for (const locale of ['es', 'en'] as const) {
     await page.locator('.rail-index a[href="#experience"]').focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('#experience')).toBeFocused();
+    await expect(page.locator('.language-switcher a')).toHaveAttribute(
+      'href',
+      `${localizedPath(locale === 'es' ? 'en' : 'es')}#experience`,
+    );
     await page.locator('.language-switcher a').click();
     await expect(page.locator('html')).toHaveAttribute(
       'lang',
