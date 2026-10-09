@@ -1,6 +1,6 @@
 import type { Locale } from '@/config/locales';
 import type { Experience } from '@/content/experience';
-import { Asset } from '@/components/ui/asset';
+import { Icon } from '@/components/ui/icon';
 import { Tag } from '@/components/ui/tag';
 
 export function ExperienceCard({
@@ -13,19 +13,19 @@ export function ExperienceCard({
   const copy = experience.copy[locale];
   return (
     <article className="experience-card glass-card">
-      <Asset
-        alt=""
-        label={locale === 'es' ? 'Visual pendiente' : 'Visual pending'}
-        icon={
-          experience.id === 'bds'
-            ? 'network'
-            : experience.id === 'sire'
-              ? 'code'
-              : 'box'
-        }
-      />
+      <span className="experience-visual" aria-hidden="true">
+        <Icon
+          name={
+            experience.id === 'bds'
+              ? 'network'
+              : experience.id === 'sire'
+                ? 'code'
+                : 'box'
+          }
+        />
+      </span>
       <div className="experience-card-content">
-        <h2>{experience.company}</h2>
+        <h3>{experience.company}</h3>
         <p className="experience-role">
           {copy.role}
           {copy.location ? ` · ${copy.location}` : ''}

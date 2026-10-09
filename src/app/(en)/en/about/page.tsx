@@ -1,4 +1,4 @@
 import { permanentRedirect } from 'next/navigation';
 export default function Page() {
-  permanentRedirect('/en#about');
+  permanentRedirect('/en#experience');
 }

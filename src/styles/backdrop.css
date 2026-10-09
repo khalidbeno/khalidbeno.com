@@ -1,0 +1,70 @@
+/* One static canvas per layout, independent of section boundaries. */
+.site-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+        ellipse at 44% 24%,
+        rgb(255 255 255 / 0.88),
+        transparent 58%
+      )
+      top / 100% 100svh no-repeat,
+    radial-gradient(ellipse at 0% 62%, #d5dfed, transparent 62%) top / 100%
+      100svh no-repeat,
+    radial-gradient(ellipse at 94% 30%, #dbe5f3, transparent 65%) top / 100%
+      100svh no-repeat,
+    radial-gradient(
+      ellipse at 100% 35%,
+      rgb(210 222 240 / 0.6),
+      transparent 25%
+    ),
+    radial-gradient(ellipse at 0% 62%, rgb(214 226 241 / 0.7), transparent 23%),
+    radial-gradient(
+      ellipse at 85% 88%,
+      rgb(223 231 243 / 0.65),
+      transparent 24%
+    ),
+    #edf2f8;
+}
+.site-backdrop::before,
+.site-backdrop::after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: clamp(24rem, 50vw, 60rem);
+  border: 1px solid rgb(255 255 255 / 0.78);
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0.62),
+    rgb(246 249 253 / 0.24) 72%
+  );
+  box-shadow:
+    0 -18px 48px rgb(117 141 178 / 0.09),
+    inset 0 2px 12px rgb(255 255 255 / 0.55);
+  transform: rotate(-18deg);
+}
+.site-backdrop::before {
+  top: 26svh;
+  left: -30%;
+}
+.site-backdrop::after {
+  top: 66svh;
+  left: -10%;
+  transform: rotate(-24deg);
+  background: linear-gradient(
+    180deg,
+    rgb(203 216 235 / 0.42),
+    rgb(247 250 255 / 0.54) 76%
+  );
+}
+.backdrop-continuity {
+  position: absolute;
+  top: 85svh;
+  left: 0;
+  width: 100%;
+  height: max(0px, calc(100% - 85svh));
+}

@@ -140,7 +140,7 @@ for (const locale of ['es', 'en'] as const) {
       });
       expect(response.status()).toBe(308);
       expect(response.headers().location).toBe(
-        `${localizedPath(locale)}#${key}`,
+        `${localizedPath(locale)}#${key === 'about' ? 'experience' : key}`,
       );
     }
   });

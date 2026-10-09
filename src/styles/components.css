@@ -120,23 +120,6 @@
   text-align: center;
   padding-inline: 0.7rem;
 }
-.asset--portrait {
-  aspect-ratio: 4 / 5;
-  border-radius: 45% 45% 1.5rem 1.5rem;
-  background: rgb(255 255 255 / 0.15);
-}
-.portrait-placeholder {
-  width: 100%;
-  color: #52657c;
-}
-.asset--portrait .asset-label {
-  position: absolute;
-  bottom: 1.3rem;
-  border-radius: 999px;
-  padding: 0.55rem 1rem;
-  background: rgb(255 255 255 / 0.7);
-  font-size: 0.75rem;
-}
 .asset-image {
   object-fit: cover;
 }

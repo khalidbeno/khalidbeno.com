@@ -1,7 +1,6 @@
 import { routes } from './routes';
 export const sectionKeys = [
   'home',
-  'about',
   'experience',
   'projects',
   'labs',

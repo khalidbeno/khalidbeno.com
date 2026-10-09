@@ -2,23 +2,23 @@
 
 ## Experiencia principal
 
-`/` y `/en` son landings continuas con un header, main y footer. Orden: `#home`, `#about`, `#experience`, `#projects`, `#labs`, `#contact`, `#notes`. Rail lateral desktop y menú móvil apuntan a anchors reales. Notes muestra una preview; su índice completo continúa en /notes.
+`/` y `/en` son landings continuas con un header, main y footer. Orden: `#home`, `#experience`, `#projects`, `#labs`, `#contact`, `#notes`. Rail lateral desktop y menú móvil tienen seis destinos numerados 01–06 y apuntan a anchors reales. About ya no existe como sección ni destino público. Notes muestra una preview; su índice completo continúa en /notes.
 
 ## Rutas secundarias y compatibilidad
 
-| Vista                 | Ruta lógica                    |
-| --------------------- | ------------------------------ |
-| Home                  | `/`                            |
-| About (redirect)      | `/about` → `/#about`           |
-| Experience (redirect) | `/experience` → `/#experience` |
-| Projects              | `/projects`                    |
-| Proyecto              | `/projects/[slug]`             |
-| Labs (redirect)       | `/labs` → `/#labs`             |
-| Contact (redirect)    | `/contact` → `/#contact`       |
-| Notes / Blog          | `/notes`                       |
-| Artículo              | `/notes/[slug]`                |
+| Vista                  | Ruta lógica                    |
+| ---------------------- | ------------------------------ |
+| Home                   | `/`                            |
+| About (compatibilidad) | `/about` → `/#experience`      |
+| Experience (redirect)  | `/experience` → `/#experience` |
+| Projects               | `/projects`                    |
+| Proyecto               | `/projects/[slug]`             |
+| Labs (redirect)        | `/labs` → `/#labs`             |
+| Contact (redirect)     | `/contact` → `/#contact`       |
+| Notes / Blog           | `/notes`                       |
+| Artículo               | `/notes/[slug]`                |
 
-Todas tienen equivalentes ingleses; sus redirects apuntan a `/en#section`. Redirecciones permanentes 308 mediante permanentRedirect, porque no hay profundidad funcional ni motivo SEO para duplicar About/Experience/Labs/Contact. No se eliminan URLs de compatibilidad. `/projects` se conserva como índice futuro; `/notes` mantiene búsqueda y filtros GET. Templates `/projects/[slug]` y `/notes/[slug]` solo generan URLs published; registros actualmente vacíos, slugs desconocidos devuelven 404. También `/robots.txt`, `/sitemap.xml` y `/icon.svg`. Sitemap excluye redirects y hashes.
+Todas tienen equivalentes ingleses; sus redirects apuntan a `/en#section`, con `/en/about` → `/en#experience`. Redirecciones permanentes 308 mediante permanentRedirect. About solo conserva estas URLs de compatibilidad: no tiene componente, entrada en routes, metadata propia ni canonical público. `/projects` se conserva como índice futuro; `/notes` mantiene búsqueda y filtros GET. Templates `/projects/[slug]` y `/notes/[slug]` solo generan URLs published; registros actualmente vacíos, slugs desconocidos devuelven 404. También `/robots.txt`, `/sitemap.xml` y `/icon.png`. Sitemap excluye redirects y hashes.
 
 ## ES/EN
 

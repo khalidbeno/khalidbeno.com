@@ -1,5 +1,11 @@
 # Experiencia — fuente de verdad
 
+## Dirección visual aprobada — 8 de octubre de 2026
+
+About se retira de la experiencia pública; Experience mantiene el contexto profesional España/Irlanda. Introducción aprobada: «Trabajo real. Problemas reales.» y «España e Irlanda · soporte, sistemas, desarrollo y operaciones.», con la introducción breve existente. Traducción EN equivalente, sin añadir hechos.
+
+El usuario autoriza la ilustración transparente «Islas flotantes de Irlanda y España.png» para Experience. Copia exacta en `public/images/experience/madrid-dublin.png`, 1254 × 1254px. Es una representación geográfica ilustrativa, no evidencia fotográfica de empleos o instalaciones. Sustituye el CityConnection de esta sección. Sin fechas adicionales ni etiquetas dentro del PNG; las fechas de cada empleo siguen siendo las documentadas abajo.
+
 ## Estado
 
 Datos explícitos aprobados por el usuario en modo autónomo nocturno, 7 de octubre de 2026. No deducir hechos extra desde la captura.

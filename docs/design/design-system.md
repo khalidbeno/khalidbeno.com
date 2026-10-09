@@ -45,7 +45,15 @@ Documentar hover, focus, active, disabled y estados de contenido cuando correspo
 | Images     | Proporción reservada; next/image para assets reales. Ausencias como placeholders SVG/CSS neutros, nunca capturas.                          |
 | Responsive | Colapsar grid por contenido, no escalar desktop; validar 320–2560px, textos ES/EN y teclado.                                               |
 
-Fondos con curvas decorativas CSS y lavados tonales suaves, coherentes con capturas. No añaden animación ni ocultan texto. Datos ficticios de capturas no se reproducen. Home integra el retrato transparente autorizado por el usuario. About sigue pendiente de su foto/referencia.
+Un SiteBackdrop por PageFrame cubre todo el layout: iluminación radial CSS, curvas iniciales del Home y un SVG decorativo original de ondas con posiciones distintas a lo largo de un único canvas vertical. Sin fondos por sección, raster de referencia, canvas/WebGL o JS de movimiento. Home conserva su contenido y retrato; About se retira. Las otras secciones heredan este escenario sin rediseñar sus vistas.
+
+## Experience — composición editorial
+
+Introducción en dos columnas hasta 700px: texto a la izquierda, PNG territorial Madrid/Dublín a la derecha, transparente y sin marco. En móvil, heading → copy → ilustración → cards. El asset mantiene 1:1 con next/image, dimensiones intrínsecas, sizes y carga diferida; sin etiquetas ni fechas añadidas a la imagen.
+
+Timeline debajo de la introducción, ancho máximo 76rem. Cuatro entradas: BDS, SIRE, SEUR y Proyectos técnicos (Scaleopts). Cards con padding fluido 24–32px, separación 24px, texto de 16px/1.7, empresa h3 prominente, rol secundario, periodo pequeño y tags discretos. Iconos propios como visual editorial neutral, sin fotografías de empresas inventadas ni placeholders de About. Fondo blanco al 35%, borde casi imperceptible, sombra al 3.5%, sin blur pesado. Línea de 1px y nodos de 7px; móvil conserva una línea lateral simplificada.
+
+Ritmo global: padding de secciones fluido 72–144px en desktop y 56–80px hasta 900px; Home conserva su composición inicial. Rail y menú tienen seis destinos, con Experience inmediatamente después de Home.
 
 ## Home — refinamiento editorial
 

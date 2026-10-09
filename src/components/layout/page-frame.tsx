@@ -4,6 +4,7 @@ import type { RouteKey } from '@/config/routes';
 import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { interfaceCopy } from '@/content/interface';
+import { SiteBackdrop } from './site-backdrop';
 export function PageFrame({
   locale,
   active,
@@ -25,7 +26,7 @@ export function PageFrame({
     <div
       className={`site-page page-${active}${landing ? ' portfolio-landing' : ''}`}
     >
-      <div className="site-backdrop" aria-hidden="true" />
+      <SiteBackdrop />
       <a className="skip-link" href="#main-content">
         {interfaceCopy[locale].skip}
       </a>

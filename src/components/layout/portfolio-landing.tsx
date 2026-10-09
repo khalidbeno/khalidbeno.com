@@ -2,7 +2,6 @@ import type { Locale } from '@/config/locales';
 import { PageFrame } from './page-frame';
 import { ScrollRailNavigation } from './scroll-rail-navigation';
 import { HomeSection } from '@/features/home/home-view';
-import { AboutSection } from '@/features/about/about-view';
 import { ExperienceSection } from '@/features/experience/experience-view';
 import { ProjectsSection } from '@/features/projects/projects-view';
 import { LabsSection } from '@/features/labs/labs-view';
@@ -17,7 +16,6 @@ export function PortfolioLanding({ locale }: { locale: Locale }) {
       navigation={<ScrollRailNavigation locale={locale} />}
     >
       <HomeSection locale={locale} />
-      <AboutSection locale={locale} />
       <ExperienceSection locale={locale} />
       <ProjectsSection locale={locale} />
       <LabsSection locale={locale} />

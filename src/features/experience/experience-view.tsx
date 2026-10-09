@@ -1,24 +1,26 @@
+import Image from 'next/image';
 import type { Locale } from '@/config/locales';
 import { localizedPath } from '@/config/locales';
 import { experiences } from '@/content/experience';
 import { interfaceCopy } from '@/content/interface';
 import { PageFrame } from '@/components/layout/page-frame';
 import { PageHero } from '@/components/sections/page-hero';
-import { CityConnection } from '@/components/sections/city-connection';
-import { Asset } from '@/components/ui/asset';
+import { Icon } from '@/components/ui/icon';
 import { ButtonLink } from '@/components/ui/button';
 import { ExperienceCard } from './experience-card';
 
 const copy = {
   es: {
-    title: 'Trabajo real. Problemas reales.',
+    title: 'Trabajo real.',
+    secondLine: 'Problemas reales.',
     description:
       'España e Irlanda · soporte, sistemas, desarrollo y operaciones.',
     intro:
       'Una trayectoria práctica: resolver incidencias, trabajar con sistemas y desarrollar soluciones en entornos profesionales.',
   },
   en: {
-    title: 'Real work. Real problems.',
+    title: 'Real work.',
+    secondLine: 'Real problems.',
     description:
       'Spain and Ireland · support, systems, development and operations.',
     intro:
@@ -42,14 +44,28 @@ export function ExperienceSection({
       className={`portfolio-section page-experience experience-main`}
     >
       <div className="experience-intro">
-        <PageHero
-          headingLevel={standalone ? 1 : 2}
-          eyebrow={locale === 'es' ? 'Experiencia' : 'Experience'}
-          title={copy[locale].title}
-          description={copy[locale].description}
+        <div className="experience-intro-copy">
+          <PageHero
+            headingLevel={standalone ? 1 : 2}
+            eyebrow={locale === 'es' ? 'Experiencia' : 'Experience'}
+            title={copy[locale].title}
+            mutedTitle={copy[locale].secondLine}
+            description={copy[locale].description}
+          />
+          <p className="experience-lede">{copy[locale].intro}</p>
+        </div>
+        <Image
+          className="experience-illustration"
+          src="/images/experience/madrid-dublin.png"
+          alt={
+            locale === 'es'
+              ? 'Representación visual de la experiencia profesional entre Dublín y Madrid'
+              : 'Visual representation of professional experience between Dublin and Madrid'
+          }
+          width={1254}
+          height={1254}
+          sizes="(max-width: 700px) 90vw, (max-width: 900px) 40vw, 42vw"
         />
-        <p className="experience-lede">{copy[locale].intro}</p>
-        <CityConnection locale={locale} />
       </div>
       <div className="experience-timeline">
         <ol>
@@ -65,17 +81,11 @@ export function ExperienceSection({
             {locale === 'es' ? 'Proyectos' : 'Projects'}
           </span>
           <article className="experience-card glass-card">
-            <Asset
-              alt=""
-              label={
-                locale === 'es'
-                  ? 'Documentación pendiente'
-                  : 'Documentation pending'
-              }
-              icon="code"
-            />
+            <span className="experience-visual" aria-hidden="true">
+              <Icon name="code" />
+            </span>
             <div className="experience-card-content">
-              <h2>{ui.scaleopts}</h2>
+              <h3>{ui.scaleopts}</h3>
               <p className="experience-description">{ui.scaleoptsBody}</p>
               <ButtonLink
                 href={

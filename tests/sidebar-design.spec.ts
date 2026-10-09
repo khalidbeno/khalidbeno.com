@@ -32,14 +32,14 @@ for (const locale of ['es', 'en']) {
           width >= 1400 ? 224 : width >= 1100 ? 208 : 184,
         );
         await expect(page.locator('main .scroll-rail')).toHaveCount(0);
-        await expect(page.locator('.rail-index a')).toHaveCount(7);
+        await expect(page.locator('.rail-index a')).toHaveCount(6);
       } else {
         await expect(page.locator('.scroll-rail')).toBeHidden();
         const toggle = page.locator('.mobile-menu-toggle');
         await toggle.focus();
         await page.keyboard.press('Enter');
         await expect(toggle).toHaveAttribute('aria-expanded', 'true');
-        await expect(page.locator('#landing-mobile-menu a')).toHaveCount(7);
+        await expect(page.locator('#landing-mobile-menu a')).toHaveCount(6);
         await page.keyboard.press('Escape');
         await expect(toggle).toHaveAttribute('aria-expanded', 'false');
         await expect(toggle).toBeFocused();

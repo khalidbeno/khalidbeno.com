@@ -2,7 +2,6 @@ import type { Locale } from '@/config/locales';
 
 export const routes = [
   { key: 'home', path: '/', labels: { es: 'Inicio', en: 'Home' } },
-  { key: 'about', path: '/about', labels: { es: 'About', en: 'About' } },
   {
     key: 'experience',
     path: '/experience',

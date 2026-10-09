@@ -6,43 +6,6 @@
   position: relative;
   isolation: isolate;
   min-height: 100svh;
-  background:
-    radial-gradient(ellipse at 94% 12%, #dce5f4 0, transparent 45%),
-    radial-gradient(ellipse at 8% 65%, #e8eef6 0, transparent 50%),
-    var(--color-background);
-}
-.site-backdrop {
-  position: absolute;
-  inset: 0;
-  overflow: clip;
-  pointer-events: none;
-  z-index: -1;
-}
-.site-backdrop::before,
-.site-backdrop::after {
-  content: '';
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-  border: 1px solid rgb(255 255 255 / 0.9);
-  background: rgb(255 255 255 / 0.2);
-  width: 75%;
-  height: 30rem;
-  border-radius: 50%;
-  transform: rotate(-28deg);
-}
-.site-backdrop::before {
-  top: 13rem;
-  right: 0;
-  border-right: 0;
-  border-bottom: 0;
-}
-.site-backdrop::after {
-  top: 34rem;
-  left: 0;
-  border-left: 0;
-  border-top: 0;
-  transform: rotate(28deg);
 }
 .site-header {
   min-height: 5.5rem;

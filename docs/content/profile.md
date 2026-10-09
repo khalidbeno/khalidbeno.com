@@ -15,11 +15,11 @@ Datos nuevos aprobados en modo autónomo nocturno, 7 de octubre de 2026:
 - Abierto a oportunidades.
 - Titular Home: «Experiencia real entre Madrid y Dublín.»
 
-## About autorizado
+## Biografía aprobada — histórico
 
 «Khaled Beno es un profesional IT afincado en Madrid con experiencia trabajando en España e Irlanda. Su trayectoria combina soporte, sistemas y desarrollo. La experiencia profesional en Dublín aportó autonomía, resolución de incidencias en entornos reales y comunicación profesional en inglés. Desde entonces continúa construyendo proyectos técnicos y profundizando en software, cloud y ciberseguridad.»
 
-Una fotografía, un párrafo principal, conexión Madrid ↔ Dublín y CTA Experience. Sin cronología larga ni datos íntimos. Traducciones fieles en `src/content/profile.ts`.
+About se retira de la web por instrucción del usuario del 8 de octubre de 2026. Se conserva esta biografía como hecho documental aprobado; su proyección y CTA exclusivos de About se eliminan del runtime. Experience presenta el contexto geográfico profesional sin introducir datos nuevos.
 
 ## Posicionamiento solicitado
 
@@ -27,7 +27,7 @@ Software Development → Cloud & Systems → Cybersecurity. Networks y Applied A
 
 ## Pendiente de aportar y validar
 
-Fotografía y permisos para About, CV autorizado, formación, niveles de idiomas y titular contractual exacto. Los datos de configuración Git y textos ilustrativos de capturas no se utilizan como fuente personal. Las áreas de posicionamiento no acreditan seniority ni cinco especialidades equivalentes.
+CV autorizado, formación, niveles de idiomas y titular contractual exacto. About eliminado: no necesita foto adicional. Los datos de configuración Git y textos ilustrativos de capturas no se utilizan como fuente personal. Las áreas de posicionamiento no acreditan seniority ni cinco especialidades equivalentes.
 
 ## Publicación
 

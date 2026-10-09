@@ -18,7 +18,9 @@ En `docs/design/reference-images/`:
 - `06-contact.png` → Contact.
 - `07-notes.png` → Notes / Blog.
 
-About pendiente de referencia final. Se implementa una composición sencilla según el texto autorizado, pendiente de comparación cuando llegue `02-about.png`. Antes de implementar una vista, identificar y estudiar su estructura, grid, spacing, jerarquía, tamaños, radios, fondos, profundidad, composición y densidad. Construir con HTML, React y CSS/Tailwind reales. Las capturas viven solo como documentación: no se sirven desde `public/`, no se importan en runtime y no se usan de fondo para reproducir la UI. Si hay conflicto con el sistema genérico, señalarlo antes de decidir. Lectura visual y limitaciones registradas en el plan nocturno.
+About se elimina por instrucción del usuario del 8 de octubre de 2026; no se espera una vista final. `03-experience.png` sigue guiando la jerarquía, con una composición nueva autorizada: introducción e ilustración arriba, timeline/cards debajo. La ilustración «Islas flotantes de Irlanda y España.png» se copia sin cambios a `public/images/experience/madrid-dublin.png`; sustituye el CityConnection de Experience. Sus colores propios forman parte del asset aprobado, sin extenderlos a la paleta UI. El fondo común toma el ADN de `01-home.png` y continúa por todo el layout mediante CSS y SVG decorativo original, sin repetir una instancia por sección.
+
+Antes de implementar una vista, identificar y estudiar su estructura, grid, spacing, jerarquía, tamaños, radios, fondos, profundidad, composición y densidad. Construir con HTML, React y CSS/Tailwind reales. Las capturas viven solo como documentación: no se sirven desde `public/`, no se importan en runtime y no se usan de fondo para reproducir la UI. Si hay conflicto con el sistema genérico, señalarlo antes de decidir. Lectura visual y limitaciones registradas en los informes de implementación.
 
 ## Regla de uso
 
