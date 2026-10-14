@@ -20,8 +20,8 @@ const steps: { icon: IconName; es: [string, string]; en: [string, string] }[] =
     },
     {
       icon: 'code',
-      es: ['Decisiones', 'Alternativas y criterios'],
-      en: ['Decisions', 'Alternatives and criteria'],
+      es: ['Decisiones', 'Trade-offs y alternativas'],
+      en: ['Decisions', 'Trade-offs and alternatives'],
     },
     {
       icon: 'shield',
@@ -35,8 +35,8 @@ const steps: { icon: IconName; es: [string, string]; en: [string, string] }[] =
     },
     {
       icon: 'document',
-      es: ['Resultado', 'Evidencia y límites'],
-      en: ['Outcome', 'Evidence and limitations'],
+      es: ['Resultado', 'Impacto y métricas'],
+      en: ['Outcome', 'Impact and metrics'],
     },
   ];
 

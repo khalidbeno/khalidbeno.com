@@ -49,9 +49,9 @@ Un SiteBackdrop por PageFrame cubre todo el layout: iluminación radial CSS, cur
 
 ## Experience — composición editorial
 
-Introducción en dos columnas hasta 700px: texto a la izquierda, PNG territorial Madrid/Dublín a la derecha, transparente y sin marco. En móvil, heading → copy → ilustración → cards. El asset mantiene 1:1 con next/image, dimensiones intrínsecas, sizes y carga diferida; sin etiquetas ni fechas añadidas a la imagen.
+Composición de dos columnas desde 901px: izquierda 45% con narrativa y PNG territorial Madrid/Dublín debajo, alineado a la izquierda; derecha 55% con timeline y cuatro cards apiladas. Ambas columnas empiezan en la misma fila. Hasta 1100px: heading → copy → ilustración → timeline/cards. El asset transparente mantiene 1:1 con next/image, dimensiones intrínsecas, sizes y carga diferida; sin marco ni fondo propio duro. Etiquetas HTML bilingües Dublín/Irlanda y Madrid/España, sin fechas añadidas. Halo y niebla CSS muy tenues bajo el PNG, sombra de silueta y punto de recorrido sobre su conexión existente.
 
-Timeline debajo de la introducción, ancho máximo 76rem. Cuatro entradas: BDS, SIRE, SEUR y Proyectos técnicos (Scaleopts). Cards con padding fluido 24–32px, separación 24px, texto de 16px/1.7, empresa h3 prominente, rol secundario, periodo pequeño y tags discretos. Iconos propios como visual editorial neutral, sin fotografías de empresas inventadas ni placeholders de About. Fondo blanco al 35%, borde casi imperceptible, sombra al 3.5%, sin blur pesado. Línea de 1px y nodos de 7px; móvil conserva una línea lateral simplificada.
+Timeline de línea fina y nodos de 7px, con año a la izquierda y card a la derecha. Cards compactas con padding 16–20px, visual neutral a la izquierda y contenido a la derecha, incluyendo móvil. Se conservan hechos, periodos, notas y tags aprobados; fotografías de empresas pendientes. Superficies translúcidas con acentos azul grisáceo (BDS), lila tenue (SIRE), verde suave (SEUR) y azul pizarra (proyectos), borde discreto y sombra ligera, sin blur pesado. Hover con elevación de 2px; focus-within refuerza borde y sombra. Separación de 20px entre entradas; en móvil la fecha pasa encima de la card con línea lateral simplificada.
 
 Ritmo global: padding de secciones fluido 72–144px en desktop y 56–80px hasta 900px; Home conserva su composición inicial. Rail y menú tienen seis destinos, con Experience inmediatamente después de Home.
 
@@ -74,3 +74,11 @@ Por instrucción vigente, logo y rail están separados. Header transparente ocup
 LogoMark utiliza exclusivamente el símbolo aportado por el usuario en Group 1.png: PNG transparente de 51×58px, copiado sin cambios a public/brand/logo-symbol.png. Sin texto KB, nombre visible, fondo añadido, badge, filtros, crop o redibujo. Tamaño 46px de alto en header desktop, 32px en header móvil y 36px en índices; ancho automático conserva proporción. Enlace con nombre accesible existente, imagen decorativa de alt vacío. src/config/brand.ts centraliza ruta y dimensiones para sustituir por SVG autorizado; favicon usa el mismo PNG original. Rail mantiene spacing, grid, dots y estados.
 
 Hasta 900px se oculta la región y aparece símbolo / ES-EN / Menú. Botón real con aria-expanded y aria-controls, panel desplazable en poca altura, cierre al navegar y Escape; foco visible y destinos nativos. Sin JavaScript se ofrece details/summary. En pantallas bajas la sidebar puede desplazarse verticalmente para no perder destinos.
+
+## Experience — stage desktop
+
+La composición 45/55 aprobada se conserva dentro de un stage sticky desde 1101px y 650px de alto sin reduced motion. La ilustración ajusta su tamaño al alto disponible; las cards mantienen su diseño y avanzan por una ventana visual sin scrollbar interna. El flujo completo sigue siendo el HTML inicial y el fallback. GSAP/ScrollTrigger solo gestionan las escenas de esta sección. Ver motion-system.md para ritmo, cleanup y preferencias.
+
+## Projects — referencia aprobada
+
+Cabecera editorial de dos líneas y detalle lateral discreto. Una card protagonista horizontal y dos cards inferiores en columnas, con superficies translúcidas, bordes finos y sombras ligeras; proceso de siete pasos en banda inferior. Mockups propios HTML/CSS/SVG de dashboard/integraciones, cloud y security; sin capturas en runtime. Grid y decoraciones colapsan por contenido. Hover de 3px limitado a pointer fine y desactivado con reduced motion. Contenido conceptual y CTA pendientes se identifican explícitamente según docs/content/projects.md. Estilos aislados en projects.css; rail, header, logo y otras secciones intactos.

@@ -1,12 +1,14 @@
 .experience-main {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  align-items: start;
 }
 .experience-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
 }
 .experience-intro-copy {
   min-width: 0;
@@ -15,7 +17,7 @@
   margin-bottom: 1.5rem;
 }
 .experience-intro .hero-heading {
-  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-size: clamp(2rem, 3.1vw, 3.75rem);
 }
 .experience-intro .heading-muted {
   color: inherit;
@@ -35,7 +37,7 @@
   width: 100%;
   height: auto;
   max-width: 37rem;
-  justify-self: center;
+  justify-self: start;
   object-fit: contain;
 }
 .experience-timeline {
@@ -50,15 +52,15 @@
 }
 .timeline-entry {
   display: grid;
-  grid-template-columns: 7rem minmax(0, 1fr);
-  gap: 2rem;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  gap: 1.25rem;
   position: relative;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 .timeline-entry::before {
   content: '';
   position: absolute;
-  left: 8rem;
+  left: 4.375rem;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -67,7 +69,7 @@
 .timeline-entry::after {
   content: '';
   position: absolute;
-  left: calc(8rem - 3px);
+  left: calc(4.375rem - 3px);
   top: 2.5rem;
   width: 7px;
   height: 7px;
@@ -85,10 +87,10 @@
 }
 .experience-card.glass-card {
   display: grid;
-  grid-template-columns: 5rem minmax(0, 1fr);
+  grid-template-columns: 3rem minmax(0, 1fr);
   align-items: start;
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  padding: clamp(1.5rem, 2.5vw, 2rem);
+  gap: 0.875rem;
+  padding: clamp(1rem, 1.3vw, 1.25rem);
   background: rgb(255 255 255 / 0.35);
   border: 1px solid rgb(255 255 255 / 0.58);
   border-radius: var(--radius-md);
@@ -98,7 +100,7 @@
 .experience-visual {
   display: grid;
   place-items: center;
-  width: 4.5rem;
+  width: 3rem;
   aspect-ratio: 1;
   border-radius: 1.25rem;
   background: rgb(216 227 241 / 0.38);
@@ -112,7 +114,7 @@
   min-width: 0;
 }
 .experience-card h3 {
-  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.125rem, 1.45vw, 1.45rem);
   line-height: 1.25;
   letter-spacing: -0.035em;
   font-weight: 650;
@@ -131,10 +133,10 @@
 }
 .experience-description {
   max-width: 52rem;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.9375rem;
+  line-height: 1.55;
   color: var(--color-muted);
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
 }
 .experience-note {
   font-size: 0.8rem;
@@ -143,7 +145,7 @@
   margin-top: 0.75rem;
 }
 .experience-card .tag-list {
-  margin-top: 1.5rem;
+  margin-top: 0.875rem;
   gap: 0.5rem;
 }
 .experience-card .tag {
@@ -152,36 +154,46 @@
   border-color: transparent;
 }
 .timeline-projects .button {
-  margin-top: 1.5rem;
+  margin-top: 0.875rem;
   font-size: 0.8rem;
 }
 @media (max-width: 1100px) {
   .experience-intro .hero-heading {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 3.1vw, 3rem);
   }
   .timeline-entry {
-    grid-template-columns: 5.5rem minmax(0, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
   }
   .timeline-entry::before {
-    left: 6.25rem;
+    left: 3.5rem;
   }
   .timeline-entry::after {
-    left: calc(6.25rem - 3px);
+    left: calc(3.5rem - 3px);
   }
   .experience-card.glass-card {
-    grid-template-columns: 3.5rem minmax(0, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0.75rem;
   }
   .experience-visual {
-    width: 3.5rem;
+    width: 2.25rem;
+    border-radius: 0.75rem;
+  }
+  .experience-visual .icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+@media (max-width: 900px) {
+  .experience-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .experience-illustration {
+    max-width: 30rem;
   }
 }
 @media (max-width: 700px) {
-  .experience-intro {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-  }
   .experience-intro .hero-heading {
     font-size: clamp(2.25rem, 8vw, 3rem);
   }
@@ -191,7 +203,7 @@
   .timeline-entry {
     display: block;
     padding-left: 1rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
   }
   .timeline-entry::before {
     left: 0;
@@ -207,16 +219,437 @@
     margin-bottom: 0.75rem;
   }
   .experience-card.glass-card {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
-    padding: 1.5rem;
+    padding: 1rem;
   }
-  .experience-visual {
-    width: 3rem;
+}
+
+/* The illustration remains transparent; atmosphere is a soft decorative layer. */
+.experience-islands {
+  position: relative;
+  width: 100%;
+  max-width: 37rem;
+  margin: 0;
+  isolation: isolate;
+}
+.islands-float {
+  position: relative;
+}
+.experience-islands .experience-illustration {
+  max-width: none;
+  filter: drop-shadow(0 12px 12px rgb(57 77 102 / 0.12));
+}
+.islands-atmosphere {
+  position: absolute;
+  inset: 8% 2% 3%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgb(220 233 239 / 0.55),
+      transparent 50%
+    ),
+    radial-gradient(ellipse at 73% 77%, rgb(235 231 245 / 0.4), transparent 48%);
+}
+.islands-atmosphere::before,
+.islands-atmosphere::after {
+  content: '';
+  position: absolute;
+  width: 58%;
+  height: 12%;
+  left: 0;
+  top: 51%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgb(255 255 255 / 0.85),
+    transparent 70%
+  );
+  filter: blur(8px);
+}
+.islands-atmosphere::after {
+  left: 38%;
+  top: 87%;
+}
+.islands-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.islands-traveller {
+  fill: #597caa;
+  offset-path: path('M 55 28 C 70 31 75 40 78 54');
+  opacity: 0;
+}
+.island-label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.65rem 0.875rem;
+  border: 1px solid rgb(255 255 255 / 0.8);
+  border-radius: 1rem;
+  background: rgb(249 252 255 / 0.88);
+  box-shadow: 0 6px 20px rgb(57 77 102 / 0.08);
+  backdrop-filter: blur(8px);
+  transition:
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+.island-label-dublin {
+  top: 19%;
+  right: 1%;
+}
+.island-label-madrid {
+  bottom: 12%;
+  left: 2%;
+}
+.island-label strong,
+.island-label small {
+  display: block;
+}
+.island-label strong {
+  font-size: 0.875rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.island-label small {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}
+.island-label i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #638477;
+  box-shadow: 0 0 0 4px rgb(99 132 119 / 0.1);
+}
+.island-label-madrid i {
+  background: #6c7896;
+  box-shadow: 0 0 0 4px rgb(108 120 150 / 0.1);
+}
+.timeline-entry {
+  --experience-accent: 106 137 171;
+  padding-bottom: 1.25rem;
+}
+.timeline-sire {
+  --experience-accent: 124 117 155;
+}
+.timeline-seur {
+  --experience-accent: 110 142 127;
+}
+.timeline-projects {
+  --experience-accent: 105 122 148;
+}
+.experience-card.glass-card {
+  border-color: rgb(var(--experience-accent) / 0.16);
+  background: linear-gradient(
+    120deg,
+    rgb(var(--experience-accent) / 0.065),
+    rgb(255 255 255 / 0.58) 65%
+  );
+  box-shadow: 0 6px 22px rgb(57 77 102 / 0.045);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+.experience-card .experience-visual {
+  background: rgb(var(--experience-accent) / 0.12);
+  color: rgb(var(--experience-accent));
+  box-shadow: inset 0 0 0 1px rgb(var(--experience-accent) / 0.1);
+  transition: transform 220ms ease;
+}
+.experience-card .tag {
+  background: rgb(var(--experience-accent) / 0.09);
+  border: 1px solid rgb(var(--experience-accent) / 0.08);
+}
+.experience-card:focus-within {
+  border-color: rgb(var(--experience-accent) / 0.45);
+  box-shadow: 0 10px 28px rgb(57 77 102 / 0.09);
+}
+@media (hover: hover) and (pointer: fine) {
+  .experience-card.glass-card:hover {
+    transform: translateY(-2px);
+    border-color: rgb(var(--experience-accent) / 0.35);
+    box-shadow: 0 12px 30px rgb(57 77 102 / 0.09);
+  }
+  .experience-card:hover .experience-visual {
+    transform: translateY(-1px);
+  }
+  .island-label:hover {
+    background: rgb(255 255 255 / 0.96);
+    box-shadow: 0 8px 24px rgb(57 77 102 / 0.12);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .experience-islands[data-live] .islands-float {
+    animation: islands-float 9s ease-in-out 2;
+  }
+  .experience-islands[data-live] .islands-atmosphere {
+    animation: islands-mist 12s ease-in-out 2;
+  }
+  .experience-islands[data-live] .island-label i {
+    animation: island-pulse 4s ease-in-out 3;
+  }
+  .experience-islands[data-live] .islands-traveller {
+    animation: island-route 8s ease-in-out 2;
+  }
+}
+@keyframes islands-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@keyframes islands-mist {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateX(5px);
+    opacity: 0.95;
+  }
+}
+@keyframes island-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+@keyframes island-route {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  15%,
+  75% {
+    opacity: 0.65;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+@media (max-width: 900px) {
+  .experience-islands {
+    max-width: 30rem;
+  }
+}
+@media (max-width: 700px) {
+  .experience-islands {
+    max-width: 25rem;
+  }
+  .island-label {
+    padding: 0.5rem 0.625rem;
+    gap: 0.5rem;
     border-radius: 0.875rem;
   }
-  .experience-visual .icon {
-    width: 1.4rem;
-    height: 1.4rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-islands *,
+  .experience-card.glass-card,
+  .experience-card .experience-visual {
+    animation: none !important;
+    transition: none;
+  }
+  .experience-card.glass-card:hover,
+  .experience-card:hover .experience-visual {
+    transform: none;
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .island-label {
+    background: #f9fcff;
+    backdrop-filter: none;
+    border-color: #8999ad;
+  }
+  .experience-card.glass-card {
+    background: #f9fcff;
+    border-color: #8999ad;
+  }
+}
+
+/* Native sticky, enabled only after the motion controller is ready. */
+.experience-timeline-window {
+  min-width: 0;
+}
+.experience-timeline-fill,
+.islands-story-path {
+  display: none;
+}
+.portfolio-landing .experience-story[data-story='true'] {
+  padding-block: 0;
+  height: calc(100svh - 76px + var(--story-travel));
+}
+.experience-story[data-story='true'] .experience-stage {
+  position: sticky;
+  top: 76px;
+  height: calc(100svh - 76px);
+  padding-block: 24px;
+}
+.experience-story[data-story='true'] .experience-intro {
+  gap: 0.75rem;
+}
+.experience-story[data-story='true'] .experience-islands {
+  width: min(100%, max(240px, calc(100svh - 500px)));
+}
+.experience-story[data-story='true'] .experience-timeline-window {
+  height: 100%;
+  overflow: clip;
+  padding: 4px 4px 12px 0;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 3%,
+    black 96%,
+    transparent
+  );
+}
+.experience-story[data-story='true'] .experience-timeline {
+  position: relative;
+}
+.experience-story[data-story='true'] .experience-timeline-fill {
+  display: block;
+  position: absolute;
+  left: 4.375rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #617b99;
+  transform: scaleY(var(--story-progress, 0));
+  transform-origin: top;
+}
+.experience-story[data-story='true']
+  .timeline-entry[data-active='true']
+  .experience-card {
+  border-color: rgb(var(--experience-accent) / 0.45);
+  box-shadow:
+    0 10px 28px rgb(57 77 102 / 0.09),
+    inset 0 1px rgb(255 255 255 / 0.9);
+}
+.experience-story[data-story='true']
+  .timeline-entry[data-active='true']
+  .timeline-year,
+.experience-story[data-story='true']
+  .timeline-entry[data-complete='true']
+  .timeline-year {
+  color: #263b52;
+}
+.experience-story[data-story='true'] .timeline-entry[data-active='true']::after,
+.experience-story[data-story='true']
+  .timeline-entry[data-complete='true']::after {
+  background: #577694;
+  box-shadow: 0 0 0 4px rgb(87 118 148 / 0.1);
+}
+.experience-story[data-story='true'] .islands-story-path {
+  display: block;
+  fill: none;
+  stroke: #6686a4;
+  stroke-width: 0.45;
+  stroke-linecap: round;
+}
+.experience-story[data-story='true'] .islands-traveller {
+  animation: none;
+}
+.experience-story[data-story='true'][data-scene='1'] .islands-atmosphere {
+  background: radial-gradient(
+    ellipse at 30% 40%,
+    rgb(197 218 232 / 0.5),
+    transparent 65%
+  );
+}
+.experience-story[data-story='true'][data-scene='3'] .islands-atmosphere,
+.experience-story[data-story='true'][data-scene='4'] .islands-atmosphere,
+.experience-story[data-story='true'][data-scene='5'] .islands-atmosphere {
+  background: radial-gradient(
+    ellipse at 73% 77%,
+    rgb(207 221 231 / 0.5),
+    transparent 65%
+  );
+}
+@media (max-width: 1100px) {
+  .experience-story .experience-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.experience-story[data-story='true'] .experience-stage {
+  grid-template-rows: minmax(0, 1fr);
+}
+.experience-story[data-story='true'] .experience-timeline-window {
+  min-height: 0;
+}
+
+.experience-story[data-story='true'] .islands-atmosphere {
+  background:
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgb(197 218 232 / var(--dublin-light, 0.45)),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 73% 77%,
+      rgb(207 221 231 / var(--madrid-light, 0.1)),
+      transparent 60%
+    );
+}
+.experience-story[data-story='true'][data-scene] .islands-atmosphere {
+  background:
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgb(197 218 232 / var(--dublin-light, 0.45)),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 73% 77%,
+      rgb(207 221 231 / var(--madrid-light, 0.1)),
+      transparent 60%
+    );
+}
+@media (prefers-reduced-motion: no-preference) {
+  .experience-story[data-story='true'] .experience-illustration {
+    animation: islands-float 12s ease-in-out 2;
+  }
+  .experience-story[data-story='true'][data-scene='1'] .island-label-dublin i,
+  .experience-story[data-story='true'][data-scene='3'] .island-label-madrid i {
+    animation: island-pulse 2s ease-in-out 1;
+  }
+}
+
+.experience-story[data-story='true'] {
+  overflow-anchor: none;
+}
+
+/* Short laptop viewports keep the narrative readable without scaling the page. */
+@media (max-height: 799px) {
+  .experience-story[data-story='true'] .experience-stage {
+    padding-block: 16px;
+  }
+  .experience-story[data-story='true'] .experience-intro .page-hero {
+    margin-bottom: 0.75rem;
+  }
+  .experience-story[data-story='true'] .experience-intro .hero-heading {
+    margin-top: 0.75rem;
+  }
+  .experience-story[data-story='true'] .experience-intro .hero-description {
+    margin-top: 0.875rem;
+  }
+  .experience-story[data-story='true'] .experience-lede {
+    line-height: 1.6;
+  }
+  .experience-story[data-story='true'] .experience-islands {
+    width: min(100%, max(220px, calc(100svh - 470px)));
   }
 }

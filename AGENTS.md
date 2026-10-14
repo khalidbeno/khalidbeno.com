@@ -13,7 +13,7 @@ Consultar también las reglas de ingeniería, responsive, motion y SEO relevante
 
 ## Límites
 
-- Fase completada: landing continua ES/EN con rail lateral y progreso de scroll. Consultar `docs/plans/completed/continuous-scroll-report.md`; el informe nocturno conserva el histórico de implementación. Sin GSAP, push ni cambios de remotes. Commits locales solo tras validar.
+- Fase completada: landing continua ES/EN con rail lateral y progreso de scroll. Consultar `docs/plans/completed/continuous-scroll-report.md`; el informe nocturno conserva el histórico de implementación. GSAP/ScrollTrigger autorizados exclusivamente para Experience storytelling; sin push ni cambios de remotes. Commits locales solo tras validar.
 - `docs/content/` es la única fuente de verdad personal. No inventar experiencia, empresas, tecnologías, certificaciones, proyectos, fechas, cargos, resultados ni métricas. Marcar ausencias como pendientes.
 - Figma aprobado y `docs/design/reference-images/` son las fuentes visuales principales. Antes de implementar una página, estudiar su captura, grid, spacing, tipografía y composición. No reinterpretar radicalmente el diseño. Si existe conflicto con una regla genérica, señalarlo antes de decidir.
 - Capturas solo como documentación: no copiarlas a `public/`, incluirlas en el bundle ni utilizarlas como fondo para reproducir la UI.

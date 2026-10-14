@@ -78,7 +78,25 @@ for (const locale of ['es', 'en'] as const) {
       'href',
       `${localizedPath(locale === 'es' ? 'en' : 'es')}#experience`,
     );
-    await page.locator('.language-switcher a').click();
+    // Native anchor navigation settles after focus; avoid clicking during its intermediate state.
+    await expect(
+      page.locator('.rail-index a[href="#experience"]'),
+    ).toHaveAttribute('aria-current', 'location');
+    await expect
+      .poll(async () => (await page.locator('#experience').boundingBox())!.y)
+      .toBeGreaterThanOrEqual(70);
+    await expect
+      .poll(async () => (await page.locator('#experience').boundingBox())!.y)
+      .toBeLessThan(110);
+    // locator.click may scroll a sticky header's original box into view and change the active section.
+    // Click its current visible position, as a physical pointer does.
+    const languageLink = page.locator('.language-switcher a');
+    await expect(languageLink).toBeInViewport();
+    const languageBounds = await languageLink.boundingBox();
+    await page.mouse.click(
+      languageBounds!.x + languageBounds!.width / 2,
+      languageBounds!.y + languageBounds!.height / 2,
+    );
     await expect(page.locator('html')).toHaveAttribute(
       'lang',
       locale === 'es' ? 'en' : 'es',

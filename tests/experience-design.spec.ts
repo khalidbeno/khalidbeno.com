@@ -41,7 +41,35 @@ for (const locale of ['es', 'en'] as const) {
         .toBe(true);
       const bounds = await image.boundingBox();
       expect(Math.abs(bounds!.width - bounds!.height)).toBeLessThan(1);
+      const intro = await experience.locator('.experience-intro').boundingBox();
+      const timeline = await experience
+        .locator('.experience-timeline')
+        .boundingBox();
+      const cards = await experience.locator('.experience-card').all();
+      if (width > 1100) {
+        expect(Math.abs(intro!.y - timeline!.y)).toBeLessThan(1);
+        expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(timeline!.x);
+        for (const card of cards) {
+          const cardBounds = await card.boundingBox();
+          expect(cardBounds!.x).toBeGreaterThanOrEqual(timeline!.x);
+        }
+      } else {
+        expect(timeline!.y).toBeGreaterThanOrEqual(bounds!.y + bounds!.height);
+      }
       await expect(experience.locator('.experience-card')).toHaveCount(4);
+      await expect(experience.locator('.island-label-dublin')).toContainText(
+        locale === 'es' ? 'Dublín' : 'Dublin',
+      );
+      await expect(experience.locator('.island-label-madrid')).toContainText(
+        'Madrid',
+      );
+      for (const label of await experience.locator('.island-label').all()) {
+        const labelBounds = await label.boundingBox();
+        expect(labelBounds!.x).toBeGreaterThanOrEqual(bounds!.x);
+        expect(labelBounds!.x + labelBounds!.width).toBeLessThanOrEqual(
+          bounds!.x + bounds!.width + 1,
+        );
+      }
       await expect(experience.locator('.city-connection')).toHaveCount(0);
       await expect(page.locator('.site-backdrop')).toHaveCount(1);
       const canvas = await page.locator('.site-backdrop').boundingBox();
@@ -66,3 +94,48 @@ for (const locale of ['es', 'en'] as const) {
     }
   });
 }
+
+test('experience motion respects preference changes and no-JavaScript content', async ({
+  page,
+  browser,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/#experience');
+  const scene = page.locator('.experience-islands');
+  await scene.scrollIntoViewIfNeeded();
+  await expect(page.locator('#experience')).toHaveAttribute(
+    'data-story',
+    'true',
+  );
+  await expect(page.locator('.experience-stage')).toHaveCSS(
+    'position',
+    'sticky',
+  );
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(page.locator('#experience')).not.toHaveAttribute(
+    'data-story',
+    'true',
+  );
+  await expect
+    .poll(() =>
+      scene.evaluate(
+        (element) => element.getAnimations({ subtree: true }).length,
+      ),
+    )
+    .toBe(0);
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 375, height: 812 },
+  });
+  try {
+    const staticPage = await context.newPage();
+    await staticPage.goto('/#experience');
+    await expect(staticPage.locator('.island-label-dublin')).toBeVisible();
+    await expect(staticPage.locator('.experience-card')).toHaveCount(4);
+    for (const card of await staticPage.locator('.experience-card').all())
+      await expect(card).toBeVisible();
+  } finally {
+    await context.close();
+  }
+});

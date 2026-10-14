@@ -2,11 +2,11 @@
 
 ## Estado tras la implementación nocturna
 
-Foundation conservada. Runtime Next.js en la raíz, landing continua ES/EN y templates de detalle de proyectos y notas. Las vistas usan datos aprobados y placeholders donde faltan assets; Projects, Labs y Notes no publican fichas inexistentes. About eliminado por instrucción del usuario del 8 de octubre de 2026. Sin motion ni librerías UI externas.
+Foundation conservada. Runtime Next.js en la raíz, landing continua ES/EN y templates de detalle de proyectos y notas. Las vistas usan datos aprobados y placeholders donde faltan assets; Projects, Labs y Notes no publican fichas inexistentes. About eliminado por instrucción del usuario del 8 de octubre de 2026. Microanimaciones nativas aisladas en Experience; sin librerías UI externas.
 
 ## Stack previsto
 
-Next.js App Router, React, TypeScript strict y Tailwind CSS. Server Components por defecto; componentes cliente únicamente para comportamiento que lo requiera. MDX mediante `@next/mdx`, con `src/mdx-components.tsx`. Sin artículos ficticios. GSAP y ScrollTrigger no se instalan todavía.
+Next.js App Router, React, TypeScript strict y Tailwind CSS. Server Components por defecto; componentes cliente únicamente para comportamiento que lo requiera. MDX mediante `@next/mdx`, con `src/mdx-components.tsx`. Sin artículos ficticios. GSAP/ScrollTrigger se usan exclusivamente en ExperienceMotion para storytelling desktop.
 
 ## Responsabilidades
 
@@ -49,7 +49,7 @@ Experience, Labs y Contact redirigen a anchors. /about y /en/about conservan ún
 
 SiteBackdrop es un Server Component único en PageFrame. CSS en src/styles/backdrop.css aplica un fondo continuo a toda la altura del layout, con iluminación radial y curvas iniciales del Home; SVG decorativo original con bandas de composición distinta continúa debajo. No depende de secciones, scroll ni JavaScript. Capa aria-hidden, pointer-events none, z-index -1 dentro del contexto aislado de site-page. Sin capturas en public ni fondos replicados por sección.
 
-ExperienceSection dispone introducción e ilustración en un grid superior y timeline debajo. PNG transparente autorizado en public/images/experience/madrid-dublin.png, next/image con proporción reservada, sizes y lazy loading. ExperienceCard conserva hechos aprobados y usa iconos neutros en lugar de fotografías no autorizadas. CityConnection permanece solo en Contact, que lo sigue utilizando. Asset compartido conserva su función general; se elimina la variante de retrato placeholder exclusiva de About.
+ExperienceSection usa un grid 45/55 desde 901px: narrativa e ilustración en la columna izquierda y timeline/cards en la derecha. Hasta 1100px mantiene el orden heading, copy, ilustración y cards en una columna. PNG transparente autorizado en public/images/experience/madrid-dublin.png, next/image con proporción reservada, sizes y lazy loading. ExperienceMotion usa gsap.context y matchMedia para activar sticky nativo y ScrollTrigger scrub en desktop (1101px/650px mínimo), con tres viewports de recorrido. Scene state y transformaciones reversibles permanecen aislados; el rail conserva su observer de geometría real: la altura exterior de Experience mantiene su destino activo durante el sticky. IntersectionObserver/Web Animations mantienen el fallback ligero. Sin ocultar el contenido del servidor, con cleanup y reduced motion. Las etiquetas de ciudad se renderizan en HTML sobre el PNG intacto; atmósfera y recorrido son capas decorativas CSS/SVG. ExperienceCard conserva hechos aprobados y usa iconos neutros en lugar de fotografías no autorizadas. CityConnection permanece solo en Contact, que lo sigue utilizando. Asset compartido conserva su función general; se elimina la variante de retrato placeholder exclusiva de About.
 
 ## Contenido y detalles
 
@@ -64,3 +64,7 @@ MDX local de confianza registrado con `load` y `sourceFile` bajo `src/content/ar
 ## Decisiones pendientes
 
 Dominio, fuentes definitivas/licencias, fotos/evidencias de empleos si se desean incorporar, frames Figma, CV y canales de contacto, fichas de proyectos/labs/artículos, enlaces de credenciales. About ya no requiere assets. Avisos dev de lint documentados; no aplicar downgrade automático. Detalles todavía sin instancias públicas por falta de contenido aprobado. Consultar informes de implementación para resultados exactos de validación.
+
+## Projects — presentación visual
+
+ProjectsSection comparte el acabado de la referencia entre landing e índice. ProjectConceptCard y ProjectVisual son Server Components; los conceptos tipados en src/content/project-concepts.ts remiten a docs/content/projects.md y no se incorporan a publishedProjects, slugs ni sitemap. Assets visuales originales en HTML/CSS/SVG sin datos operativos ni métricas ficticias. CTA deshabilitada mientras falten destinos autorizados. src/styles/projects.css limita sus reglas al feature; sin cambios de navegación ni nuevos Client Components/dependencias.
