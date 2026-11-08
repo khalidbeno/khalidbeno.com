@@ -57,6 +57,8 @@ for (const locale of ['es', 'en'] as const) {
         expect(timeline!.y).toBeGreaterThanOrEqual(bounds!.y + bounds!.height);
       }
       await expect(experience.locator('.experience-card')).toHaveCount(4);
+      await expect(experience.locator('.experience-card').first().locator('h3')).toHaveText('Field IT Support');
+      await expect(experience.locator('.experience-card').first().locator('.experience-company')).toContainText('BDS Vending Solutions');
       await expect(experience.locator('.island-label-dublin')).toContainText(
         locale === 'es' ? 'Dublín' : 'Dublin',
       );
