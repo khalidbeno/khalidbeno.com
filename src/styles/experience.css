@@ -670,3 +670,13 @@
 @media (prefers-contrast: more) {
   .experience-company { color: #394845; }
 }
+
+/* The real 'view projects' action in the experience timeline stays visible. */
+.timeline-projects .button--secondary {
+  background: #20312e;
+  border-color: #20312e;
+  color: #fff;
+  min-height: 3rem;
+  font-weight: 700;
+}
+.timeline-projects .button--secondary:hover { background: #344c46; }
