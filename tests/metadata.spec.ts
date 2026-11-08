@@ -32,10 +32,12 @@ test('configured canonical, translations and sitemap use each page path without 
     );
     expect(untranslated.alternates?.languages).toBeUndefined();
     const entries = sitemap();
-    expect(entries).toHaveLength(6);
+    expect(entries).toHaveLength(12);
     expect(new Set(entries.map((entry) => entry.url)).size).toBe(6);
     expect(entries.some((entry) => entry.url.includes('draft'))).toBe(false);
     expect(entries.some((entry) => entry.url.includes('/about'))).toBe(false);
+    expect(entries.some((entry) => entry.url.endsWith('/projects/ai-office'))).toBe(true);
+    expect(entries.some((entry) => entry.url.endsWith('/en/projects/sentinel-blue-team'))).toBe(true);
     expect(robots().rules).toEqual({ userAgent: '*', allow: '/' });
   } finally {
     if (previousUrl === undefined) delete process.env.SITE_URL;
