@@ -60,6 +60,7 @@ export function ProjectDetail({
         title={project.title}
         description={project.description}
       />
+      <p className="project-detail-phase">{project.phase}</p>
       <div className="tag-list detail-tags">
         {project.stack.map((tag) => (
           <Tag key={tag}>{tag}</Tag>
@@ -67,7 +68,8 @@ export function ProjectDetail({
       </div>
       {project.image ? (
         <div className="project-detail-image">
-          <Asset src={project.image} alt={project.title} label="" />
+          <Asset src={project.image} alt={project.title + (locale === 'es' ? ': esquema conceptual' : ': conceptual diagram')} label="" />
+          <p className="project-diagram-note">{locale === 'es' ? 'Ilustración de arquitectura propuesta · No es una captura del producto terminado' : 'Proposed architecture illustration · Not a screenshot of a finished product'}</p>
         </div>
       ) : null}
       <article className="detail-body">
