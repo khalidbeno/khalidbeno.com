@@ -623,3 +623,45 @@
     border-color: #a7b5cb;
   }
 }
+
+/* Documented portfolio projects. Preserve the original editorial visual system. */
+.projects-grid .project-card {
+  border-color: #d5ddd9;
+  background: rgb(255 255 255 / 0.82);
+}
+.project-card-phase,
+.project-detail-phase {
+  color: #4b6962;
+  font-weight: 750;
+  font-size: 0.76rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+.project-card .project-card-phase { margin-top: 0; margin-bottom: 0.6rem; }
+.project-card-actions { margin-top: 1.5rem; }
+.project-card-actions .button,
+.project-actions a.button {
+  min-height: 3.1rem;
+  padding-inline: 1.5rem;
+  background: #20312e;
+  border: 1px solid #20312e;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgb(27 50 45 / 0.13);
+  transition: transform 160ms ease, background 160ms ease;
+}
+.project-card-actions .button:hover,
+.project-actions a.button:hover { background: #344c46; transform: translateY(-2px); }
+.project-card-actions .button:focus-visible { outline: 3px solid #496e61; outline-offset: 4px; }
+.project-detail-phase { margin-top: 1.4rem; margin-bottom: 1rem; }
+.project-detail-image { max-width: 68rem; }
+.project-detail-image .asset { aspect-ratio: 1200 / 670; background: #edf2ef; }
+.project-detail-image .asset-image { object-fit: contain; }
+.project-diagram-note { color: #62706b; font-size: 0.82rem; margin-top: 0.7rem; }
+@media (max-width: 600px) {
+  .project-card-actions .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card-actions .button:hover,
+  .project-actions a.button:hover { transform: none; }
+}
