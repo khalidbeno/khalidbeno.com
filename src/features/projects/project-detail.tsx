@@ -68,8 +68,21 @@ export function ProjectDetail({
       </div>
       {project.image ? (
         <div className="project-detail-image">
-          <Asset src={project.image} alt={project.title + (locale === 'es' ? ': esquema conceptual' : ': conceptual diagram')} label="" />
-          <p className="project-diagram-note">{locale === 'es' ? 'Ilustración de arquitectura propuesta · No es una captura del producto terminado' : 'Proposed architecture illustration · Not a screenshot of a finished product'}</p>
+          <Asset
+            src={project.image}
+            alt={
+              project.title +
+              (locale === 'es'
+                ? ': esquema conceptual'
+                : ': conceptual diagram')
+            }
+            label=""
+          />
+          <p className="project-diagram-note">
+            {locale === 'es'
+              ? 'Ilustración de arquitectura propuesta · No es una captura del producto terminado'
+              : 'Proposed architecture illustration · Not a screenshot of a finished product'}
+          </p>
         </div>
       ) : null}
       <article className="detail-body">
