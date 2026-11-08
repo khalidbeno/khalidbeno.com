@@ -25,9 +25,9 @@ export function ExperienceCard({
         />
       </span>
       <div className="experience-card-content">
-        <h3>{experience.company}</h3>
-        <p className="experience-role">
-          {copy.role}
+        <h3>{copy.role}</h3>
+        <p className="experience-company">
+          {experience.company}
           {copy.location ? ` · ${copy.location}` : ''}
         </p>
         <p className="experience-period">
