@@ -17,6 +17,7 @@ export function ProjectCard({
       className={`project-card glass-card${featured ? ' project-card--featured' : ''}`}
     >
       <div>
+        <p className="project-card-phase">{project.phase}</p>
         <h2>{project.title}</h2>
         <p>{project.description}</p>
         <div className="tag-list">
@@ -24,16 +25,16 @@ export function ProjectCard({
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
-        <ButtonLink
-          href={localizedPath(project.locale, `/projects/${project.slug}`)}
-        >
-          {interfaceCopy[project.locale].view}
-        </ButtonLink>
+        <div className="project-card-actions">
+          <ButtonLink href={localizedPath(project.locale, `/projects/${project.slug}`)}>
+            {project.locale === 'es' ? 'Ver documentación' : 'View documentation'}
+          </ButtonLink>
+        </div>
       </div>
       <Asset
         src={project.image}
         alt={project.title}
-        label={project.locale === 'es' ? 'Visual pendiente' : 'Visual pending'}
+        label={project.locale === 'es' ? 'Diagrama conceptual' : 'Conceptual diagram'}
         icon="code"
       />
     </article>
