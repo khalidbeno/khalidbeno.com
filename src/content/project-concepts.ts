@@ -47,8 +47,8 @@ export const projectConcepts: readonly ProjectConcept[] = [
 
 export const projectsPresentationCopy = {
   es: {
-    title: 'Capacidad demostrada,',
-    muted: 'no solo listada.',
+    title: 'Proyectos principales,',
+    muted: 'documentados paso a paso.',
     description:
       'AI Office, SENTINEL y NETOPS AI: ideas, arquitectura, estado y siguientes hitos explicados con claridad.',
     aside: 'Software, redes y ciberseguridad.',
@@ -58,8 +58,8 @@ export const projectsPresentationCopy = {
     unavailable: 'Fichas y enlaces pendientes de confirmar.',
   },
   en: {
-    title: 'Demonstrated ability,',
-    muted: 'not just a list.',
+    title: 'Core projects,',
+    muted: 'documented step by step.',
     description:
       'AI Office, SENTINEL and NETOPS AI: goals, architecture, progress and next milestones explained clearly.',
     aside: 'Software, networking and cybersecurity.',
