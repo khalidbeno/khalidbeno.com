@@ -50,8 +50,8 @@ export const projectsPresentationCopy = {
     title: 'Capacidad demostrada,',
     muted: 'no solo listada.',
     description:
-      'Cada proyecto explica problema, arquitectura, stack, decisiones y resultado.',
-    aside: 'Soluciones en software, cloud y automatización.',
+      'AI Office, SENTINEL y NETOPS AI: ideas, arquitectura, estado y siguientes hitos explicados con claridad.',
+    aside: 'Software, redes y ciberseguridad.',
     concept: 'Concepto visual',
     view: 'Ver proyecto',
     external: 'Abrir proyecto',
@@ -61,8 +61,8 @@ export const projectsPresentationCopy = {
     title: 'Demonstrated ability,',
     muted: 'not just a list.',
     description:
-      'Each project explains the problem, architecture, stack, decisions and outcome.',
-    aside: 'Solutions in software, cloud and automation.',
+      'AI Office, SENTINEL and NETOPS AI: goals, architecture, progress and next milestones explained clearly.',
+    aside: 'Software, networking and cybersecurity.',
     concept: 'Visual concept',
     view: 'View project',
     external: 'Open project',
