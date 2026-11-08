@@ -665,3 +665,11 @@
   .project-card-actions .button:hover,
   .project-actions a.button:hover { transform: none; }
 }
+
+/* Keep wide explanatory diagrams fully legible on project cards. */
+.project-card .asset {
+  aspect-ratio: 1200 / 670;
+  background: #f4f6f4;
+  border: 1px solid #d6e0dc;
+}
+.project-card .asset-image { object-fit: contain; }
