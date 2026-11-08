@@ -1,8 +1,20 @@
 # Proyectos — fuente de verdad
 
-## Estado
+## Estado actualizado — 8 de noviembre de 2026
 
-El usuario confirma «Proyectos técnicos (Scaleopts)», pero no aporta fichas concretas ni evidencia suficiente. No publicar como hechos los proyectos ilustrativos de la captura.
+El usuario ha elegido tres proyectos principales para su portfolio personal: AI Office (software, iniciado), SENTINEL Blue Team (ciberseguridad, MVP definido y trabajo inicial) y NETOPS AI (redes, diseño propuesto y aplazado). Autoriza presentar su documentación en la web con ilustraciones fáciles de entender.
+
+**La documentación es publicable; los productos todavía no están terminados.** La interfaz debe mostrar explícitamente su fase actual y no atribuir funciones, resultados, despliegues, clientes, métricas ni repositorios no verificados. Las imágenes de `public/projects/` son diagramas originales conceptuales, nunca capturas reales.
+
+- **AI Office**: oficina visual para agentes de IA con tareas, resultados y aprobaciones humanas. En desarrollo; no confirmar agentes siempre activos ni integraciones sin evidencia.
+- **SENTINEL Blue Team**: plataforma defensiva de logs, reglas, eventos y alertas. MVP de backend planteado con Python, FastAPI, PostgreSQL y Docker; no afirmar que el sistema completo está validado o desplegado.
+- **NETOPS AI**: diagnóstico y monitorización de red asistidos por IA. Concepto / fase de diseño; sin implementación confirmada.
+
+Las tres fichas se ofrecen en español e inglés desde `src/content/projects.ts`, con diagramas editables. Antes de presentar capturas o enlaces GitHub específicos, verificar la implementación y autorización.
+
+## Histórico previo
+
+El usuario también confirmó «Proyectos técnicos (Scaleopts)», sin fichas verificadas de proyectos para esa categoría. Los conceptos de octubre descritos más abajo son históricos y no deben confundirse con los tres nuevos proyectos.
 
 ## Contrato por proyecto
 
@@ -18,7 +30,7 @@ Inventario, evidencias, permisos y descripciones equivalentes ES/EN. No crear ca
 
 Python, FastAPI, PostgreSQL/MySQL, APIs, Docker, Linux, AWS, automatización e integraciones se enumeran por el usuario solo cuando estén documentados. No atribuirlos hasta recibir esa documentación. Fechas de Scaleopts pendientes; no usar «2025–Actual» de la captura.
 
-Contrato y registro vacío: `src/content/projects.ts`. Detalle: Problema → Arquitectura → Stack → Decisiones → Dificultad → Solución → Resultado. Slugs inexistentes o drafts devuelven 404.
+Registro de fichas y documentación: `src/content/projects.ts`. Detalle: Problema → Arquitectura → Stack → Decisiones → Dificultad → Solución → Resultado. Slugs inexistentes o drafts devuelven 404.
 
 ## Presentación conceptual autorizada — 14 de octubre de 2026
 
