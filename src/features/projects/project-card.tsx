@@ -1,6 +1,5 @@
 import { localizedPath } from '@/config/locales';
 import type { Project } from '@/content/projects';
-import { interfaceCopy } from '@/content/interface';
 import { Asset } from '@/components/ui/asset';
 import { ButtonLink } from '@/components/ui/button';
 import { Tag } from '@/components/ui/tag';
@@ -26,7 +25,9 @@ export function ProjectCard({
           ))}
         </div>
         <div className="project-card-actions">
-          <ButtonLink href={localizedPath(project.locale, `/projects/${project.slug}`)}>
+          <ButtonLink
+            href={localizedPath(project.locale, `/projects/${project.slug}`)}
+          >
             {project.locale === 'es' ? 'Ver documentación' : 'View documentation'}
           </ButtonLink>
         </div>
@@ -34,7 +35,9 @@ export function ProjectCard({
       <Asset
         src={project.image}
         alt={project.title}
-        label={project.locale === 'es' ? 'Diagrama conceptual' : 'Conceptual diagram'}
+        label={
+          project.locale === 'es' ? 'Diagrama conceptual' : 'Conceptual diagram'
+        }
         icon="code"
       />
     </article>
